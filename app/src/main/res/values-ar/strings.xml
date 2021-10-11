@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">اطبخلي</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="search">Write Place to Search…</string>
+    <string name="default_info_title">Beriut</string>
+    <string name="default_info_snippet">Lenabon Capital</string>
+    <string name="pick_place">Pick Place</string>
+    <string name="show_directions">Show Directions</string>
+    <string name="title_activity_admob">MainActivity</string>
+    <string name="action_settings">Settings</string>
+    <!-- -
+        This is an ad unit ID for an interstitial test ad. Replace with your own interstitial ad unit id.
+        For more information, see https://support.google.com/admob/answer/3052638
+    <!- -->
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <!--<string name="interstitial_ad_unit_id">ca-app-pub-2559564046715323~6653115980</string>-->
+    <string name="unknown_error">unknown error</string>
+    <string name="no_internet">no internet</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAiAir1uMz3NwJDd9vjIhqeEuTUgw2S7VM</string>
+
+    <string name="lets_start">دعنا نبدأ !</string>
+    <string name="quick_service_for_kitchens_and_restaurants_in_saudi_arabia_to_book_banquets_and_buffets">خدمة سريعة للمطابخ والمطاعم في السعودية لحجز الولائم والبوفيهات</string>
+    <string name="choose_your_favorite_language">إختر لغتك المفضلة</string>
+    <string name="arabic">عربي</string>
+    <string name="english">إنكليزي</string>
+    <string name="choose_country">إختر الدولة</string>
+    <string name="saudia_arabia">السعودية</string>
+    <string name="done">تم</string>
+    <string name="choose_city">إختر مدينة</string>
+    <string name="choose_region">إختر منطقة</string>
+    <string name="enter_the_4_digit_code_that_was_sent_to_the_number">ادخل الكود المكون من 4 أرقام الذي تم ارساله الى الرقم</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="resend_code">إعادة إرسال الرمز</string>
+    <string name="phone_number">رقم الجوال</string>
+    <string name="skip">تخطي</string>
+    <string name="select_your_address_to_receive_your_order">حدد عنوانك ليصلك طلبك</string>
+    <string name="choose_the_right_kitchen_for_your_occasion_whether_it_is_a_restaurant_independent_chefs_or_mobile_carts">اختر المطبخ الملائم لمناسبتك ان كان مطعم او طهاة مستقلين او عربات متنقلة</string>
+    <string name="start">ابدأ</string>
+    <string name="continue_">استمرار</string>
+    <string name="yes_i_have_read_it_and_agree_to_it">نعم قرأتها وموافق عليها</string>
+    <string name="have_you_read_our_terms_of_use_and_privacy_policy">هل قرأت شروط الاستخدام وسياسة الخصوصية الخاصة بنا</string>
+
+    <string-array name="places">
+        <item>Grand Kadri Hotel By Cristal Lebanon</item>
+        <item>Germanos - Pastry</item>
+        <item>Malak el Tawook</item>
+        <item>Z Burger House</item>
+        <item>Collège Oriental</item>
+        <item>VERO MODA</item>
+    </string-array>
+</resources>

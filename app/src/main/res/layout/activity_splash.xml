@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="magma.global.restaurant.presentation.splash.SplashViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.splash.SplashActivity">
+
+        <TextView
+            android:id="@+id/txt_title"
+            style="@style/MaterialTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lets_start"
+            android:layout_marginBottom="@dimen/spacing_large"
+            app:layout_constraintBottom_toTopOf="@id/txt_sub_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_icon" />
+
+        <TextView
+            android:id="@+id/txt_sub_title"
+            style="@style/MaterialTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:textColor="@color/grey_40"
+            android:gravity="center"
+            android:text="@string/quick_service_for_kitchens_and_restaurants_in_saudi_arabia_to_book_banquets_and_buffets"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_smile"
+            android:scaleType="fitCenter"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintHeight_percent="0.3"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toTopOf="@id/txt_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

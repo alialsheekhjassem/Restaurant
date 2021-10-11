@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="search">Write Place to Search…</string>
+    <string name="default_info_title">Beriut</string>
+    <string name="default_info_snippet">Lenabon Capital</string>
+    <string name="pick_place">Pick Place</string>
+    <string name="show_directions">Show Directions</string>
+    <string name="title_activity_admob">MainActivity</string>
+    <string name="action_settings">Settings</string>
+    <!-- -
+        This is an ad unit ID for an interstitial test ad. Replace with your own interstitial ad unit id.
+        For more information, see https://support.google.com/admob/answer/3052638
+    <!- -->
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <!--<string name="interstitial_ad_unit_id">ca-app-pub-2559564046715323~6653115980</string>-->
+    <string name="unknown_error">unknown error</string>
+    <string name="no_internet">no internet</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAiAir1uMz3NwJDd9vjIhqeEuTUgw2S7VM</string>
+
+    <string name="lets_start">Lets Start !</string>
+    <string name="quick_service_for_kitchens_and_restaurants_in_saudi_arabia_to_book_banquets_and_buffets">Quick service for kitchens and restaurants in Saudi Arabia to book banquets and buffets</string>
+    <string name="choose_your_favorite_language">Choose your favorite Language</string>
+    <string name="arabic">Arabic</string>
+    <string name="english">English</string>
+    <string name="choose_country">Choose country</string>
+    <string name="saudia_arabia">Saudia Arabia</string>
+    <string name="done">Done</string>
+    <string name="choose_city">Choose City</string>
+    <string name="choose_region">Choose Region</string>
+    <string name="enter_the_4_digit_code_that_was_sent_to_the_number">Enter the 4-digit code that was sent to the number</string>
+    <string name="login">Login</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="skip">Skip</string>
+    <string name="select_your_address_to_receive_your_order">Select your address to receive your order</string>
+    <string name="choose_the_right_kitchen_for_your_occasion_whether_it_is_a_restaurant_independent_chefs_or_mobile_carts">Choose the right kitchen for your occasion, whether it is a restaurant, independent chefs or mobile carts</string>
+    <string name="start">Start</string>
+    <string name="continue_">Continue</string>
+    <string name="yes_i_have_read_it_and_agree_to_it">Yes, I have read it and agree to it</string>
+    <string name="have_you_read_our_terms_of_use_and_privacy_policy">Have you read our Terms of Use and Privacy Policy</string>
+
+    <string-array name="places">
+        <item>Grand Kadri Hotel By Cristal Lebanon</item>
+        <item>Germanos - Pastry</item>
+        <item>Malak el Tawook</item>
+        <item>Z Burger House</item>
+        <item>Collège Oriental</item>
+        <item>VERO MODA</item>
+    </string-array>
+</resources>

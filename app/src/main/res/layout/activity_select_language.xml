@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="magma.global.restaurant.presentation.select_language.SelectLanguageViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_logo"
+                android:layout_marginBottom="@dimen/spacing_large"
+                app:layout_constraintBottom_toTopOf="@id/txt_choose_language"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txt_choose_language"
+                style="@style/MaterialTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_large"
+                android:text="@string/choose_your_favorite_language"
+                app:layout_constraintBottom_toTopOf="@id/card_language"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_icon" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_language"
+                style="@style/MaterialCardViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/txt_choose_country"
+                app:layout_constraintTop_toBottomOf="@+id/txt_choose_language"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/spacing_large">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/check_arabic"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/arabic"
+                        android:layout_marginStart="@dimen/vertical_10dp"
+                        android:layout_marginEnd="@dimen/vertical_10dp"
+                        android:layout_marginTop="@dimen/vertical_10dp"
+                        app:layout_constraintBottom_toTopOf="@+id/check_english"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <CheckBox
+                        android:id="@+id/check_english"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/english"
+                        android:layout_marginStart="@dimen/vertical_10dp"
+                        android:layout_marginEnd="@dimen/vertical_10dp"
+                        android:layout_marginBottom="@dimen/vertical_10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/check_arabic"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/txt_choose_country"
+                style="@style/MaterialTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_large"
+                android:text="@string/choose_country"
+                app:layout_constraintBottom_toTopOf="@+id/card_country"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_language" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_country"
+                style="@style/MaterialCardViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/btn_done"
+                app:layout_constraintTop_toBottomOf="@+id/txt_choose_country"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/spacing_large">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txt_country"
+                        style="@style/MaterialTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_large"
+                        android:text="@string/saudia_arabia"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:drawableEndCompat="@drawable/ic_arrow_down" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_done"
+                style="@style/MaterialButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_large"
+                android:text="@string/done"
+                app:layout_constraintTop_toBottomOf="@+id/card_country"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
