@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Restaurant</string>
+    <string name="app_name">Aabi Kershk</string>
     <string name="title_activity_maps">Map</string>
     <string name="search">Write Place to Search…</string>
     <string name="default_info_title">Beriut</string>
@@ -42,6 +42,12 @@
     <string name="continue_">Continue</string>
     <string name="yes_i_have_read_it_and_agree_to_it">Yes, I have read it and agree to it</string>
     <string name="have_you_read_our_terms_of_use_and_privacy_policy">Have you read our Terms of Use and Privacy Policy</string>
+    <string name="everything_that_comes_to_your_mind_you_can_find_it_with_us">Everything that comes to your mind, you can find it with us</string>
+    <string name="enter_your_phone_number_for_continue">Enter your phone number for continue</string>
+    <string name="send_code">Send Code!</string>
+    <string name="enter_code_here">Enter Code Here</string>
+    <string name="check_code">Check Code!</string>
+    <string name="don_t_receive_code_click_here">Don\'t receive code? <u>Click Here</u></string>
 
     <string-array name="places">
         <item>Grand Kadri Hotel By Cristal Lebanon</item>

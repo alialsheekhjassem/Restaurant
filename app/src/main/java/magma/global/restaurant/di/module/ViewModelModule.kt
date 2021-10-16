@@ -8,10 +8,10 @@ import dagger.multibindings.IntoMap
 import magma.global.restaurant.presentation.enter_code.EnterCodeViewModel
 import magma.global.restaurant.presentation.login.LoginViewModel
 import magma.global.restaurant.presentation.onboarding.OnboardViewModel
-import magma.global.restaurant.presentation.splash.SplashViewModel
 import magma.global.restaurant.presentation.select_city.SelectCityViewModel
 import magma.global.restaurant.presentation.select_region.SelectRegionViewModel
 import magma.global.restaurant.presentation.select_language.SelectLanguageViewModel
+import magma.global.restaurant.presentation.welcome.WelcomeViewModel
 
 // Because of @Binds, ViewModelModule needs to be an abstract class
 
@@ -19,10 +19,6 @@ import magma.global.restaurant.presentation.select_language.SelectLanguageViewMo
 abstract class ViewModelModule {
 
 // Use @Binds to tell Dagger which implementation it needs to use when providing an interface.
-    @Binds
-    @IntoMap
-    @ViewModelKey(SplashViewModel::class)
-    abstract fun bindMainViewModel(viewModel: SplashViewModel): ViewModel
 
     @Binds
     @IntoMap
@@ -53,6 +49,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(OnboardViewModel::class)
     abstract fun bindOnboardViewModel(viewModel: OnboardViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(WelcomeViewModel::class)
+    abstract fun bindWelcomeViewModel(viewModel: WelcomeViewModel): ViewModel
     
 
 }

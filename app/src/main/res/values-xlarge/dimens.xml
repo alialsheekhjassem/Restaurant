@@ -26,4 +26,5 @@
     <dimen name="percent_layout">0.7</dimen>
     <dimen name="percent_layout_1">0.5</dimen>
     <dimen name="percent_layout_2">0.7</dimen>
+    <dimen name="size_image_welcome">300dp</dimen>
 </resources>

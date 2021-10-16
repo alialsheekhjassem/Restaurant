@@ -25,11 +25,14 @@
             android:name=".presentation.login.LoginActivity" />
         <activity
             android:name=".presentation.onboarding.OnboardActivity" />
+        <activity
+            android:name=".presentation.welcome.WelcomeActivity" />
 
         <activity
             android:name=".presentation.splash.SplashActivity"
             android:noHistory="true"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

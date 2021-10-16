@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">اطبخلي</string>
+    <string name="app_name">عبي كرشك</string>
     <string name="title_activity_maps">Map</string>
     <string name="search">Write Place to Search…</string>
     <string name="default_info_title">Beriut</string>
@@ -43,6 +43,12 @@
     <string name="continue_">استمرار</string>
     <string name="yes_i_have_read_it_and_agree_to_it">نعم قرأتها وموافق عليها</string>
     <string name="have_you_read_our_terms_of_use_and_privacy_policy">هل قرأت شروط الاستخدام وسياسة الخصوصية الخاصة بنا</string>
+    <string name="everything_that_comes_to_your_mind_you_can_find_it_with_us">كل شي بيخطر عبالك رح تلاقي عنا</string>
+    <string name="enter_your_phone_number_for_continue">أدخل رقم هاتفك للمتابعة</string>
+    <string name="send_code">أرسل الرمز!</string>
+    <string name="enter_code_here">أدخل الرمز هنا</string>
+    <string name="check_code">تحقق من الرمز!</string>
+    <string name="don_t_receive_code_click_here">لم يصلك الرمز؟ <u>اضغط هنا</u></string>
 
     <string-array name="places">
         <item>Grand Kadri Hotel By Cristal Lebanon</item>

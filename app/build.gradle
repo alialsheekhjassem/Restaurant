@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdkVersion 31
-    buildToolsVersion '30.0.3'
+    buildToolsVersion '31.0.0'
     buildFeatures {
         dataBinding true
         viewBinding true
@@ -87,7 +87,7 @@ dependencies {
     // google maps
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
-    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation 'com.google.android.libraries.places:places:2.5.0'
 
     //google admob
     //implementation 'com.google.android.gms:play-services-ads:20.4.0'
