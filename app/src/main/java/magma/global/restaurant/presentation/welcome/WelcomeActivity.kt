@@ -1,6 +1,5 @@
 package magma.global.restaurant.presentation.welcome
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.android.AndroidInjection
 import magma.global.restaurant.databinding.ActivityWelcomeBinding
-import magma.global.restaurant.presentation.enter_code.EnterCodeActivity
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
@@ -54,15 +52,9 @@ class WelcomeActivity : AppCompatActivity() {
         TabLayoutMediator(binding.pageIndicator, mViewPager) { _, _ -> }.attach()
     }
 
-    private fun getItem(): Int {
+    /*private fun getItem(): Int {
         return mViewPager.currentItem
-    }
-
-    private fun goToEnterCodeActivity() {
-        val intent = Intent(this@WelcomeActivity, EnterCodeActivity::class.java)
-        startActivity(intent)
-    }
-
+    }*/
 
     fun hideKeyboard() {
         val view = this.currentFocus

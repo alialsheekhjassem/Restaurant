@@ -5,12 +5,11 @@ import magma.global.restaurant.utils.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import magma.global.restaurant.presentation.enter_code.EnterCodeViewModel
-import magma.global.restaurant.presentation.login.LoginViewModel
-import magma.global.restaurant.presentation.onboarding.OnboardViewModel
-import magma.global.restaurant.presentation.select_city.SelectCityViewModel
-import magma.global.restaurant.presentation.select_region.SelectRegionViewModel
-import magma.global.restaurant.presentation.select_language.SelectLanguageViewModel
+import magma.global.restaurant.presentation.home.ui.dashboard.DashboardViewModel
+import magma.global.restaurant.presentation.home.ui.home.HomeViewModel
+import magma.global.restaurant.presentation.home.ui.my_order.MyOrderViewModel
+import magma.global.restaurant.presentation.home.ui.profile.ProfileViewModel
+import magma.global.restaurant.presentation.home.ui.notifications.NotificationsViewModel
 import magma.global.restaurant.presentation.welcome.WelcomeViewModel
 
 // Because of @Binds, ViewModelModule needs to be an abstract class
@@ -22,38 +21,33 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(SelectLanguageViewModel::class)
-    abstract fun bindSelectLanguageViewModel(viewModel: SelectLanguageViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(SelectCityViewModel::class)
-    abstract fun bindSelectCityViewModel(viewModel: SelectCityViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(SelectRegionViewModel::class)
-    abstract fun bindSelectRegionViewModel(viewModel: SelectRegionViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(EnterCodeViewModel::class)
-    abstract fun bindEnterCodeViewModel(viewModel: EnterCodeViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(LoginViewModel::class)
-    abstract fun bindLoginViewModel(viewModel: LoginViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(OnboardViewModel::class)
-    abstract fun bindOnboardViewModel(viewModel: OnboardViewModel): ViewModel
-
-    @Binds
-    @IntoMap
     @ViewModelKey(WelcomeViewModel::class)
     abstract fun bindWelcomeViewModel(viewModel: WelcomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DashboardViewModel::class)
+    abstract fun bindDashboardViewModel(viewModel: DashboardViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(NotificationsViewModel::class)
+    abstract fun bindNotificationsViewModel(viewModel: NotificationsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MyOrderViewModel::class)
+    abstract fun bindMyOrderViewModel(viewModel: MyOrderViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileViewModel::class)
+    abstract fun bindProfileViewModel(viewModel: ProfileViewModel): ViewModel
     
 
 }
