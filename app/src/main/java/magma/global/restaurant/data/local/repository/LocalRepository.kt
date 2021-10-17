@@ -1,31 +1,31 @@
 package magma.global.restaurant.data.local.repository
 
-import magma.global.restaurant.data.local.repository.dao.FeedDao
-import magma.global.restaurant.model.Feed
+import magma.global.restaurant.data.local.repository.dao.RestaurantDao
+import magma.global.restaurant.model.Restaurant
 import javax.inject.Inject
 
 class LocalRepository
 @Inject constructor(
-    private val feedDao: FeedDao
+    private val restaurantDao: RestaurantDao
 ) {
-    fun updateFeedItem(deletedDate: Long, description: String) {
-        return feedDao.update(description, deletedDate)
+    fun updateRestaurantItem(deletedDate: Long, description: String) {
+        return restaurantDao.update(description, deletedDate)
     }
 
-    fun insertFeedsList(feeds: ArrayList<Feed>): LongArray {
-        return feedDao.insertAll(feeds)
+    fun insertRestaurantsList(restaurants: ArrayList<Restaurant>): LongArray {
+        return restaurantDao.insertAll(restaurants)
     }
 
-    fun insertFeedItem(feed: Feed) {
-        return feedDao.insert(feed)
+    fun insertRestaurantItem(restaurant: Restaurant) {
+        return restaurantDao.insert(restaurant)
     }
 
-    fun getDeletedFeed(): List<Feed> {
-        return feedDao.getDeletedNews()
+    fun getDeletedRestaurant(): List<Restaurant> {
+        return restaurantDao.getDeletedNews()
     }
 
-    fun deletePermanently(item: Feed) {
-        feedDao.deletePermanently(item)
+    fun deletePermanently(item: Restaurant) {
+        restaurantDao.deletePermanently(item)
     }
 
 }

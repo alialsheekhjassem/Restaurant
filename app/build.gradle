@@ -95,6 +95,9 @@ dependencies {
     //code country picker
     implementation "com.hbb20:ccp:$country_code_version"
 
+    //circle imageview
+    implementation "de.hdodenhof:circleimageview:$circleimageview_version"
+
     //otp
     implementation "com.github.mukeshsolanki:android-otpview-pinview:$otp_version"
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'

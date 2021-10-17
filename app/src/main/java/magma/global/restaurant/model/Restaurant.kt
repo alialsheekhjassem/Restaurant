@@ -4,9 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Feed")
-class Feed(
-
+@Entity(tableName = "Restaurant")
+class Restaurant(
 
     @ColumnInfo(name = "title")
     var title: String?,

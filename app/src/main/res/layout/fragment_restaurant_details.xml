@@ -3,20 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <data>
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.home.ui.dashboard.DashboardViewModel" />
+            type="magma.global.restaurant.presentation.details.RestaurantDetailsViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.home.ui.dashboard.DashboardFragment">
+        tools:context=".presentation.details.RestaurantDetailsFragment">
 
         <TextView
-            android:id="@+id/text_dashboard"
+            android:id="@+id/text_notifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

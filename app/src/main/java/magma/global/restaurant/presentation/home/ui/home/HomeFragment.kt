@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.android.support.AndroidSupportInjection
+import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentHomeBinding
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
@@ -35,7 +37,18 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
+        setupTabView()
+
         return binding.root
+    }
+
+    private fun setupTabView() {
+        val filterArray = resources.getStringArray(R.array.home_filter)
+        binding.viewpager.adapter = HomePagerAdapter(requireActivity())
+        TabLayoutMediator(binding.tabFilter, binding.viewpager) { tab, position ->
+            if (filterArray.size > position)
+                tab.text = filterArray[position]
+        }.attach()
     }
 
     override fun onAttach(context: Context) {

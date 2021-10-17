@@ -5,7 +5,8 @@ import magma.global.restaurant.utils.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import magma.global.restaurant.presentation.home.ui.dashboard.DashboardViewModel
+import magma.global.restaurant.presentation.home.ui.chats.ChatsViewModel
+import magma.global.restaurant.presentation.details.RestaurantDetailsViewModel
 import magma.global.restaurant.presentation.home.ui.home.HomeViewModel
 import magma.global.restaurant.presentation.home.ui.my_order.MyOrderViewModel
 import magma.global.restaurant.presentation.home.ui.profile.ProfileViewModel
@@ -31,8 +32,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(DashboardViewModel::class)
-    abstract fun bindDashboardViewModel(viewModel: DashboardViewModel): ViewModel
+    @ViewModelKey(ChatsViewModel::class)
+    abstract fun bindDashboardViewModel(viewModel: ChatsViewModel): ViewModel
 
     @Binds
     @IntoMap
@@ -48,6 +49,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     abstract fun bindProfileViewModel(viewModel: ProfileViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RestaurantDetailsViewModel::class)
+    abstract fun bindRestaurantDetailsViewModel(viewModel: RestaurantDetailsViewModel): ViewModel
     
 
 }

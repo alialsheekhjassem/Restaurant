@@ -9,6 +9,9 @@
     <color name="yellow">#ffc410</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorTransparency">#6F000000</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color">#e6e6e6</color>
 
     <color name="grey_1">#fefefe</color>
     <color name="grey_3">#f7f7f7</color>

@@ -8,6 +8,7 @@ buildscript {
     ext.retrofit_version = "2.9.0"
     ext.country_code_version = "2.5.4"
     ext.otp_version = "2.1.2"
+    ext.circleimageview_version = "3.1.0"
 
     repositories {
         maven {

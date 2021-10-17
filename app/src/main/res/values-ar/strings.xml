@@ -35,7 +35,7 @@
     <string name="enter_the_4_digit_code_that_was_sent_to_the_number">ادخل الكود المكون من 4 أرقام الذي تم ارساله الى الرقم</string>
     <string name="login">تسجيل الدخول</string>
     <string name="resend_code">إعادة إرسال الرمز</string>
-    <string name="phone_number">رقم الجوال</string>
+    <string name="phone_number">رقم الهاتف</string>
     <string name="skip">تخطي</string>
     <string name="select_your_address_to_receive_your_order">حدد عنوانك ليصلك طلبك</string>
     <string name="choose_the_right_kitchen_for_your_occasion_whether_it_is_a_restaurant_independent_chefs_or_mobile_carts">اختر المطبخ الملائم لمناسبتك ان كان مطعم او طهاة مستقلين او عربات متنقلة</string>
@@ -50,12 +50,39 @@
     <string name="check_code">تحقق من الرمز!</string>
     <string name="don_t_receive_code_click_here">لم يصلك الرمز؟ <u>اضغط هنا</u></string>
 
-    <string-array name="places">
-        <item>Grand Kadri Hotel By Cristal Lebanon</item>
-        <item>Germanos - Pastry</item>
-        <item>Malak el Tawook</item>
-        <item>Z Burger House</item>
-        <item>Collège Oriental</item>
-        <item>VERO MODA</item>
+
+    <string-array name="home_filter">
+        <item>الكل</item>
+        <item>مطاعم</item>
+        <item>أكل شرقي</item>
+        <item>أكل غربي</item>
+        <item>توصيل سريع</item>
+        <item>توصيل بطيء</item>
     </string-array>
+
+    <string-array name="sex">
+        <item>ذكر</item>
+        <item>أنثى</item>
+    </string-array>
+
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">الرئيسية</string>
+    <string name="default_location">بيروت، لبنان</string>
+    <string name="title_dashboard">الدردشة</string>
+    <string name="title_notifications">الإشعارات</string>
+    <string name="title_my_order">طلباتي</string>
+    <string name="title_profile">الملف الشخصي</string>
+    <string name="restaurant_name_meal">اسم مطعم، وجبة أكل..</string>
+    <string name="name">الاسم</string>
+    <string name="email">الإيميل الإلكتروني</string>
+    <string name="sex">الجنس</string>
+    <string name="birthdate">الميلاد</string>
+    <string name="day">اليوم</string>
+    <string name="year">السنة</string>
+    <string name="month">الشهر</string>
+    <string name="address">العنوان</string>
+    <string name="house">المنزل</string>
+    <string name="house_address">عنوان المنزل</string>
+    <string name="cancel">إلغاء</string>
+    <string name="save">حفظ</string>
 </resources>

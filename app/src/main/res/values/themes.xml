@@ -59,4 +59,57 @@
         <item name="cardElevation">@dimen/spacing_large</item>
         <item name="cardMaxElevation">@dimen/spacing_large</item>
     </style>
+
+    <style name="TextInputLayoutSearchStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="errorEnabled">false</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/spacing_icon_padding</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/spacing_icon_padding</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/spacing_icon_padding</item>
+        <item name="boxCornerRadiusTopStart">@dimen/spacing_icon_padding</item>
+        <item name="boxStrokeColor">@color/grey_10</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="hintAnimationEnabled">false</item>
+        <item name="android:textColorHint">@color/grey_20</item>
+        <item name="startIconDrawable">@drawable/search</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="errorEnabled">false</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/spacing_icon_padding</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/spacing_icon_padding</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/spacing_icon_padding</item>
+        <item name="boxCornerRadiusTopStart">@dimen/spacing_icon_padding</item>
+        <item name="boxStrokeColor">@color/grey_10</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="hintAnimationEnabled">false</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="TextInputEditTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/size_medium</item>
+    </style>
+
+    <style name="TextInputEditTextSearchStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/size_medium</item>
+    </style>
+
+    <style name="ToolbarStyle">
+        <item name="android:contentInsetStart">0dp</item>
+        <item name="android:contentInsetRight">0dp</item>
+        <item name="android:contentInsetEnd">0dp</item>
+        <item name="contentInsetLeft">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetRight">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+    </style>
 </resources>

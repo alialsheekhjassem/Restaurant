@@ -16,6 +16,7 @@
             android:exported="true"
             android:label="@string/title_activity_home" />
         <activity android:name=".presentation.welcome.WelcomeActivity" />
+        <activity android:name=".presentation.details.DetailsActivity" />
         <activity
             android:name=".presentation.splash.SplashActivity"
             android:exported="true"

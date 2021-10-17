@@ -49,18 +49,38 @@
     <string name="check_code">Check Code!</string>
     <string name="don_t_receive_code_click_here">Don\'t receive code? <u>Click Here</u></string>
 
-    <string-array name="places">
-        <item>Grand Kadri Hotel By Cristal Lebanon</item>
-        <item>Germanos - Pastry</item>
-        <item>Malak el Tawook</item>
-        <item>Z Burger House</item>
-        <item>Collège Oriental</item>
-        <item>VERO MODA</item>
+    <string-array name="home_filter">
+        <item>All</item>
+        <item>Restaurants</item>
+        <item>Oriental food</item>
+        <item>Western food</item>
+        <item>Express delivery</item>
+        <item>Slow delivery</item>
     </string-array>
+
+    <string-array name="sex">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="default_location">Beirut, Lebanon</string>
+    <string name="title_dashboard">Chats</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_my_order">Profile</string>
+    <string name="title_my_order">My Orders</string>
     <string name="title_profile">Profile</string>
+    <string name="restaurant_name_meal">Restaurant name, meal..</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="sex">Sex</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="day">Day</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="address">Address</string>
+    <string name="house">House</string>
+    <string name="house_address">House Address</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>

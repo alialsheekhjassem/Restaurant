@@ -40,6 +40,7 @@
     <dimen name="size_keypad_title">24sp</dimen>
     <dimen name="size_sale_title">28sp</dimen>
     <dimen name="spacing_navigation_top">40dp</dimen>
+    <dimen name="spacing_profile_top">25dp</dimen>
 
     <dimen name="image_product_size">56dp</dimen>
     <dimen name="image_category_item_size">45dp</dimen>
