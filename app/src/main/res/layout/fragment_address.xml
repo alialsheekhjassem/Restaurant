@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="magma.global.restaurant.presentation.details.address.AddressViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/lyt_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/lyt_btn"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="?attr/actionBarSize"
+                tools:context=".presentation.details.address.AddressFragment">
+
+                <TextView
+                    android:id="@+id/txt_confirm_address"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_large"
+                    android:text="@string/confirm_address"
+                    app:layout_constraintBottom_toTopOf="@+id/line1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_10"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_title_current_address"
+                    app:layout_constraintTop_toBottomOf="@id/txt_confirm_address"/>
+
+                <TextView
+                    android:id="@+id/txt_title_current_address"
+                    style="@style/MaterialTextViewBodyStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:text="@string/current_address"
+                    android:textColor="@color/grey_40"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_current_address"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+                <TextView
+                    android:id="@+id/txt_current_address"
+                    style="@style/MaterialTextViewBodyStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:text="@string/default_location"
+                    android:textStyle="bold"
+                    android:drawablePadding="@dimen/spacing_icon_padding"
+                    app:layout_constraintBottom_toTopOf="@+id/line2"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_change"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_current_address"
+                    app:drawableStartCompat="@drawable/check1" />
+
+                <TextView
+                    android:id="@+id/txt_change"
+                    style="@style/MaterialTextViewBodyStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:text="@string/change"
+                    android:gravity="end"
+                    android:textColor="@color/green_200"
+                    android:padding="@dimen/spacing_medium"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_current_address"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt_current_address"
+                    app:layout_constraintTop_toTopOf="@id/txt_current_address"/>
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_icon_padding"
+                    android:background="@color/grey_10"
+                    android:layout_marginVertical="@dimen/spacing_large"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_title_birthdate"
+                    app:layout_constraintTop_toBottomOf="@id/txt_current_address"/>
+
+                <TextView
+                    android:id="@+id/txt_title_birthdate"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:text="@string/birthdate"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_birthdate_day"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line2" />
+
+                <TextView
+                    android:id="@+id/txt_birthdate_day"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_icon_padding"
+                    android:background="@drawable/bg_outline"
+                    android:padding="@dimen/spacing_large"
+                    android:text="@string/day"
+                    app:drawableEndCompat="@drawable/ic_arrow_drop_down"
+                    app:layout_constraintEnd_toStartOf="@id/txt_birthdate_month"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_birthdate" />
+
+                <TextView
+                    android:id="@+id/txt_birthdate_month"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_icon_padding"
+                    android:background="@drawable/bg_outline"
+                    android:padding="@dimen/spacing_large"
+                    android:text="@string/month"
+                    app:drawableEndCompat="@drawable/ic_arrow_drop_down"
+                    app:layout_constraintEnd_toStartOf="@id/txt_birthdate_year"
+                    app:layout_constraintStart_toEndOf="@id/txt_birthdate_day"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_birthdate" />
+
+                <TextView
+                    android:id="@+id/txt_birthdate_year"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_icon_padding"
+                    android:background="@drawable/bg_outline"
+                    android:padding="@dimen/spacing_large"
+                    android:text="@string/year"
+                    app:drawableEndCompat="@drawable/ic_arrow_drop_down"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txt_birthdate_month"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_birthdate" />
+
+                <TextView
+                    android:id="@+id/txt_title_address"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:text="@string/address"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_address"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_birthdate_day" />
+
+                <EditText
+                    android:id="@+id/txt_address"
+                    style="@style/MaterialEditTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_icon_padding"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:autofillHints="@string/app_name"
+                    android:background="@drawable/bg_outline"
+                    android:hint="@string/house_address"
+                    android:inputType="text"
+                    android:padding="@dimen/spacing_large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/txt_place"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_address"
+                    tools:ignore="LabelFor" />
+
+                <TextView
+                    android:id="@+id/txt_place"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_icon_padding"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:background="@drawable/bg_outline"
+                    android:padding="@dimen/spacing_large"
+                    android:text="@string/house"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txt_address"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_address" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lyt_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lyt_parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_back"
+                style="@style/MaterialButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_large"
+                android:text="@string/previous"
+                app:icon="@drawable/next1"
+                app:iconGravity="start"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_continue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_continue"
+                style="@style/MaterialButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_large"
+                android:text="@string/continue_1"
+                app:icon="@drawable/backword"
+                app:iconGravity="end"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintWidth_percent="0.3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,4 +1,4 @@
-package magma.global.restaurant.presentation.details
+package magma.global.restaurant.presentation.details.address
 
 import android.content.Context
 import android.os.Bundle
@@ -10,33 +10,32 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import dagger.android.support.AndroidSupportInjection
-import magma.global.restaurant.databinding.FragmentRestaurantDetailsBinding
+import magma.global.restaurant.databinding.FragmentAddressBinding
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
-class RestaurantDetailsFragment : Fragment() {
+class AddressFragment : Fragment() {
 
-    private var _binding: FragmentRestaurantDetailsBinding? = null
+    private var _binding: FragmentAddressBinding? = null
     private lateinit var navController: NavController
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-
-    private val viewModel: RestaurantDetailsViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory).get(RestaurantDetailsViewModel::class.java)
-    }
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val viewModel: AddressViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory).get(AddressViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        _binding = FragmentRestaurantDetailsBinding.inflate(inflater, container, false)
+        _binding = FragmentAddressBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         navController = findNavController()
 

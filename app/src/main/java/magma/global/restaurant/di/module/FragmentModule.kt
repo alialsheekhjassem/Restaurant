@@ -2,8 +2,10 @@ package magma.global.restaurant.di.module
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import magma.global.restaurant.presentation.details.FoodMenuFragment
 import magma.global.restaurant.presentation.home.ui.chats.ChatsFragment
 import magma.global.restaurant.presentation.details.RestaurantDetailsFragment
+import magma.global.restaurant.presentation.details.address.AddressFragment
 import magma.global.restaurant.presentation.home.ui.home.HomeFragment
 import magma.global.restaurant.presentation.home.ui.home.RestaurantsFragment
 import magma.global.restaurant.presentation.home.ui.my_order.MyOrderFragment
@@ -47,5 +49,11 @@ internal abstract class FragmentModule
 
     @ContributesAndroidInjector
     abstract fun contributeRestaurantDetailsFragment(): RestaurantDetailsFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeFoodMenuFragment(): FoodMenuFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeAddressFragment(): AddressFragment
 
 }

@@ -40,6 +40,7 @@
     <string name="choose_the_right_kitchen_for_your_occasion_whether_it_is_a_restaurant_independent_chefs_or_mobile_carts">Choose the right kitchen for your occasion, whether it is a restaurant, independent chefs or mobile carts</string>
     <string name="start">Start</string>
     <string name="continue_">Continue</string>
+    <string name="continue_1">Continue</string>
     <string name="yes_i_have_read_it_and_agree_to_it">Yes, I have read it and agree to it</string>
     <string name="have_you_read_our_terms_of_use_and_privacy_policy">Have you read our Terms of Use and Privacy Policy</string>
     <string name="everything_that_comes_to_your_mind_you_can_find_it_with_us">Everything that comes to your mind, you can find it with us</string>
@@ -83,4 +84,16 @@
     <string name="house_address">House Address</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="delivery_time">Delivery time</string>
+    <string name="processing_time">Processing Time</string>
+    <string name="food_menu">Food Menu</string>
+    <string name="reviews">Reviews</string>
+    <string name="gallery">Gallery</string>
+    <string name="add">Add</string>
+    <string name="show_cart">Show Cart</string>
+    <string name="items">Items</string>
+    <string name="previous">Previous</string>
+    <string name="confirm_address">Confirm Address</string>
+    <string name="current_address">Your Current Address</string>
+    <string name="change">change</string>
 </resources>

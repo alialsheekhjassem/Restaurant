@@ -8,28 +8,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/bg_card_rounded.xml" value="0.2203125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/bg_circle.xml" value="0.20625" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/bg_edt_search.xml" value="0.20625" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/bg_outline.xml" value="0.20625" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/bg_rounded.xml" value="0.2203125" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/bg_rounded_image.xml" value="0.18" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/bg_splash.xml" value="0.2203125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/color_bottom_nav_selector.xml" value="0.2203125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/ic_arrow_drop_down.xml" value="0.2203125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/drawable/ic_outline_no_image.xml" value="0.2203125" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/activity_details.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/activity_details.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/activity_enter_code.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/activity_home.xml" value="0.20427305888483585" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/activity_onboarding.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/activity_welcome.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/food_item.xml" value="0.33" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_address.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_chats.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_check_code.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_details_nav.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_food_menu.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_my_order.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_notifications.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_restaurant_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_restaurant_details.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_restaurants.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/fragment_welcome.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/Restaurant/app/src/main/res/layout/restaurant_item.xml" value="0.33" />

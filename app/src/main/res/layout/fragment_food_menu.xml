@@ -7,28 +7,26 @@
 
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.home.ui.my_order.MyOrderViewModel" />
+            type="magma.global.restaurant.presentation.details.RestaurantDetailsViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.home.ui.my_order.MyOrderFragment">
+        tools:context=".presentation.details.FoodMenuFragment">
 
-        <TextView
-            android:id="@+id/text_home"
-            android:layout_width="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_food_menu"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:text="@string/title_my_order"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:clipToPadding="true"
+            android:paddingBottom="?attr/actionBarSize"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="2"
+            tools:listitem="@layout/food_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
