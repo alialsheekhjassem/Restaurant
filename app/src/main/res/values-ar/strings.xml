@@ -110,4 +110,21 @@
     <string name="about_app">عن التطبيق</string>
     <string name="invite_your_friends">قم بدعوة أصدقائك</string>
     <string name="logout">تسجيل الخروج</string>
+    <string name="default_delivery_time">التوصيل خلال 30 دقيقة، بدون زحمة سير</string>
+    <string name="continue_to_next_step">متابعة إلى الخطوة التالية</string>
+    <string name="hour">الساعة</string>
+    <string name="number_of_people">عدد الأشخاص</string>
+    <string name="table_reservation">حجز الطاولة</string>
+    <string name="time_for_food_to_come_to_the_table">وقت نزول الاكل على الطاولة</string>
+    <string name="payment_method">طريقة الدفع</string>
+    <string name="customize">تخصيص</string>
+    <string name="special_instructions_for_the_chef_or_restaurant">توجيهات خاصة للشيف او المطعم</string>
+    <string name="total">المجموع</string>
+    <string name="total_items">مجموع العناصر</string>
+    <string name="delivery_price">سعر التوصيل</string>
+    <string name="personal_info">معلوماتك الشخصية</string>
+    <string name="name_and_phone">الاسم، رقم الهاتف</string>
+    <string name="order_inside_a_restaurant">طلب داخل مطعم</string>
+    <string name="home_delivery">توصيل إلى المنزل</string>
+    <string name="receipt_from_the_restaurant">استلام من المطعم</string>
 </resources>

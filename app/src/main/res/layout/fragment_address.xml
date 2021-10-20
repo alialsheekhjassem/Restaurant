@@ -46,7 +46,7 @@
                     android:layout_height="1dp"
                     android:background="@color/grey_10"
                     app:layout_constraintBottom_toTopOf="@+id/txt_title_current_address"
-                    app:layout_constraintTop_toBottomOf="@id/txt_confirm_address"/>
+                    app:layout_constraintTop_toBottomOf="@id/txt_confirm_address" />
 
                 <TextView
                     android:id="@+id/txt_title_current_address"
@@ -68,14 +68,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
                     android:layout_marginTop="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_icon_padding"
                     android:text="@string/default_location"
                     android:textStyle="bold"
-                    android:drawablePadding="@dimen/spacing_icon_padding"
+                    app:drawableStartCompat="@drawable/check1"
                     app:layout_constraintBottom_toTopOf="@+id/line2"
                     app:layout_constraintEnd_toStartOf="@+id/txt_change"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt_title_current_address"
-                    app:drawableStartCompat="@drawable/check1" />
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_current_address" />
 
                 <TextView
                     android:id="@+id/txt_change"
@@ -83,41 +83,41 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
-                    android:text="@string/change"
                     android:gravity="end"
-                    android:textColor="@color/green_200"
                     android:padding="@dimen/spacing_medium"
+                    android:text="@string/change"
+                    android:textColor="@color/green_200"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/txt_current_address"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/txt_current_address"
-                    app:layout_constraintTop_toTopOf="@id/txt_current_address"/>
+                    app:layout_constraintTop_toTopOf="@id/txt_current_address" />
 
                 <View
                     android:id="@+id/line2"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/spacing_icon_padding"
-                    android:background="@color/grey_10"
                     android:layout_marginVertical="@dimen/spacing_large"
-                    app:layout_constraintBottom_toTopOf="@+id/txt_title_birthdate"
-                    app:layout_constraintTop_toBottomOf="@id/txt_current_address"/>
+                    android:background="@color/grey_10"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_title_reservation"
+                    app:layout_constraintTop_toBottomOf="@id/txt_current_address" />
 
                 <TextView
-                    android:id="@+id/txt_title_birthdate"
+                    android:id="@+id/txt_title_reservation"
                     style="@style/MaterialTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
                     android:layout_marginTop="@dimen/spacing_large"
-                    android:text="@string/birthdate"
-                    app:layout_constraintBottom_toTopOf="@+id/txt_birthdate_day"
+                    android:text="@string/table_reservation"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_day"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/line2" />
 
                 <TextView
-                    android:id="@+id/txt_birthdate_day"
-                    style="@style/MaterialTextStyle"
+                    android:id="@+id/txt_day"
+                    style="@style/MaterialTextViewBodyStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
@@ -125,88 +125,105 @@
                     android:background="@drawable/bg_outline"
                     android:padding="@dimen/spacing_large"
                     android:text="@string/day"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/grey_40"
                     app:drawableEndCompat="@drawable/ic_arrow_drop_down"
-                    app:layout_constraintEnd_toStartOf="@id/txt_birthdate_month"
+                    app:layout_constraintEnd_toStartOf="@id/txt_hour"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt_title_birthdate" />
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_reservation" />
 
                 <TextView
-                    android:id="@+id/txt_birthdate_month"
-                    style="@style/MaterialTextStyle"
+                    android:id="@+id/txt_hour"
+                    style="@style/MaterialTextViewBodyStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
                     android:layout_marginTop="@dimen/spacing_icon_padding"
                     android:background="@drawable/bg_outline"
                     android:padding="@dimen/spacing_large"
-                    android:text="@string/month"
+                    android:text="@string/hour"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/grey_40"
                     app:drawableEndCompat="@drawable/ic_arrow_drop_down"
-                    app:layout_constraintEnd_toStartOf="@id/txt_birthdate_year"
-                    app:layout_constraintStart_toEndOf="@id/txt_birthdate_day"
-                    app:layout_constraintTop_toBottomOf="@id/txt_title_birthdate" />
+                    app:layout_constraintEnd_toStartOf="@id/txt_num_of_people"
+                    app:layout_constraintStart_toEndOf="@id/txt_day"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_reservation" />
 
                 <TextView
-                    android:id="@+id/txt_birthdate_year"
-                    style="@style/MaterialTextStyle"
+                    android:id="@+id/txt_num_of_people"
+                    style="@style/MaterialTextViewBodyStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
                     android:layout_marginTop="@dimen/spacing_icon_padding"
                     android:background="@drawable/bg_outline"
                     android:padding="@dimen/spacing_large"
-                    android:text="@string/year"
+                    android:gravity="center_vertical"
+                    android:text="@string/number_of_people"
+                    android:textColor="@color/grey_40"
                     app:drawableEndCompat="@drawable/ic_arrow_drop_down"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txt_birthdate_month"
-                    app:layout_constraintTop_toBottomOf="@id/txt_title_birthdate" />
+                    app:layout_constraintStart_toEndOf="@id/txt_hour"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_reservation" />
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_icon_padding"
+                    android:layout_marginVertical="@dimen/spacing_large"
+                    android:background="@color/grey_10"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_title_time_for_food"
+                    app:layout_constraintTop_toBottomOf="@id/txt_day" />
 
                 <TextView
-                    android:id="@+id/txt_title_address"
+                    android:id="@+id/txt_title_time_for_food"
                     style="@style/MaterialTextStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:text="@string/address"
-                    app:layout_constraintBottom_toTopOf="@+id/txt_address"
+                    android:layout_marginTop="@dimen/spacing_icon_padding"
+                    android:text="@string/time_for_food_to_come_to_the_table"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_time_for_food_hour"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt_birthdate_day" />
-
-                <EditText
-                    android:id="@+id/txt_address"
-                    style="@style/MaterialEditTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_large"
-                    android:layout_marginTop="@dimen/spacing_icon_padding"
-                    android:layout_marginBottom="@dimen/spacing_large"
-                    android:autofillHints="@string/app_name"
-                    android:background="@drawable/bg_outline"
-                    android:hint="@string/house_address"
-                    android:inputType="text"
-                    android:padding="@dimen/spacing_large"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/txt_place"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/txt_title_address"
-                    tools:ignore="LabelFor" />
+                    app:layout_constraintTop_toBottomOf="@id/line3" />
 
                 <TextView
-                    android:id="@+id/txt_place"
-                    style="@style/MaterialTextStyle"
+                    android:id="@+id/txt_time_for_food_hour"
+                    style="@style/MaterialTextViewBodyStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/spacing_large"
                     android:layout_marginTop="@dimen/spacing_icon_padding"
-                    android:layout_marginBottom="@dimen/spacing_large"
                     android:background="@drawable/bg_outline"
                     android:padding="@dimen/spacing_large"
-                    android:text="@string/house"
+                    android:text="@string/hour"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/grey_40"
+                    app:drawableEndCompat="@drawable/ic_arrow_drop_down"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_title_time_for_food" />
+
+                <View
+                    android:id="@+id/line4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_icon_padding"
+                    android:layout_marginVertical="@dimen/spacing_large"
+                    android:background="@color/grey_10"
+                    app:layout_constraintTop_toBottomOf="@id/txt_time_for_food_hour" />
+
+                <TextView
+                    android:id="@+id/txt_title_payment_method"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_icon_padding"
+                    android:text="@string/payment_method"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/txt_address"
-                    app:layout_constraintTop_toBottomOf="@id/txt_title_address" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line4" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -225,13 +242,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_large"
+                android:enabled="false"
                 android:text="@string/previous"
                 app:icon="@drawable/next1"
                 app:iconGravity="start"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_continue"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.3" />
 
             <com.google.android.material.button.MaterialButton
@@ -243,10 +261,10 @@
                 android:text="@string/continue_1"
                 app:icon="@drawable/backword"
                 app:iconGravity="end"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

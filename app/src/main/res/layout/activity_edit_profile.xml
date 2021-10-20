@@ -61,7 +61,7 @@
 
             <TextView
                 android:id="@+id/txt_title_name"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -82,6 +82,7 @@
                 android:background="@drawable/bg_outline"
                 android:inputType="textPersonName"
                 android:padding="@dimen/spacing_large"
+                android:textSize="@dimen/size_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_name"
@@ -89,7 +90,7 @@
 
             <TextView
                 android:id="@+id/txt_title_phone"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -112,6 +113,7 @@
                 android:inputType="phone"
                 android:layoutDirection="ltr"
                 android:padding="@dimen/spacing_large"
+                android:textSize="@dimen/size_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/countryPicker"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_phone"
@@ -141,7 +143,7 @@
 
             <TextView
                 android:id="@+id/txt_title_email"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -163,6 +165,7 @@
                 android:background="@drawable/bg_outline"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/spacing_large"
+                android:textSize="@dimen/size_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_email"
@@ -170,7 +173,7 @@
 
             <TextView
                 android:id="@+id/txt_title_sex"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -198,13 +201,14 @@
                     android:id="@+id/spinner_sex"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_small"
                     android:inputType="none"
                     tools:ignore="LabelFor" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/txt_title_birthdate"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -217,7 +221,8 @@
 
             <TextView
                 android:id="@+id/txt_birthdate_day"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
+                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -225,6 +230,7 @@
                 android:background="@drawable/bg_outline"
                 android:padding="@dimen/spacing_large"
                 android:text="@string/day"
+                android:textColor="@color/grey_40"
                 app:drawableEndCompat="@drawable/ic_arrow_drop_down"
                 app:layout_constraintEnd_toStartOf="@id/txt_birthdate_month"
                 app:layout_constraintStart_toStartOf="parent"
@@ -232,7 +238,8 @@
 
             <TextView
                 android:id="@+id/txt_birthdate_month"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
+                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -240,6 +247,7 @@
                 android:background="@drawable/bg_outline"
                 android:padding="@dimen/spacing_large"
                 android:text="@string/month"
+                android:textColor="@color/grey_40"
                 app:drawableEndCompat="@drawable/ic_arrow_drop_down"
                 app:layout_constraintEnd_toStartOf="@id/txt_birthdate_year"
                 app:layout_constraintStart_toEndOf="@id/txt_birthdate_day"
@@ -247,7 +255,8 @@
 
             <TextView
                 android:id="@+id/txt_birthdate_year"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
+                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -255,6 +264,7 @@
                 android:background="@drawable/bg_outline"
                 android:padding="@dimen/spacing_large"
                 android:text="@string/year"
+                android:textColor="@color/grey_40"
                 app:drawableEndCompat="@drawable/ic_arrow_drop_down"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/txt_birthdate_month"
@@ -262,7 +272,7 @@
 
             <TextView
                 android:id="@+id/txt_title_address"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -286,6 +296,7 @@
                 android:hint="@string/house_address"
                 android:inputType="text"
                 android:padding="@dimen/spacing_large"
+                android:textSize="@dimen/size_small"
                 app:layout_constraintBottom_toTopOf="@+id/barrier"
                 app:layout_constraintEnd_toStartOf="@id/txt_place"
                 app:layout_constraintStart_toStartOf="parent"
@@ -294,7 +305,8 @@
 
             <TextView
                 android:id="@+id/txt_place"
-                style="@style/MaterialTextStyle"
+                style="@style/MaterialTextViewSmallStyle"
+                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
@@ -321,6 +333,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_large"
                 android:text="@string/save"
+                android:textSize="@dimen/size_small"
                 app:layout_constraintWidth_percent="0.3"
                 app:layout_constraintTop_toBottomOf="@+id/barrier"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -336,6 +349,7 @@
                 android:text="@string/cancel"
                 app:backgroundTint="@color/grey_10"
                 android:textColor="@color/black"
+                android:textSize="@dimen/size_small"
                 app:layout_constraintWidth_percent="0.3"
                 app:layout_constraintTop_toBottomOf="@+id/barrier"
                 app:layout_constraintBottom_toBottomOf="parent"

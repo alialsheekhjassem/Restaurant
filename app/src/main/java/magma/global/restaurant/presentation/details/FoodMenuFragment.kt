@@ -103,7 +103,7 @@ class FoodMenuFragment : Fragment(), RecyclerItemFoodListener<Restaurant> {
         lytShowCart?.setOnClickListener {
             //Toast.makeText(binding.root.context, "lytShowCart", Toast.LENGTH_SHORT).show()
             lytShowCart!!.visibility = View.GONE
-            navController.navigate(R.id.fragment_address)
+            navController.navigate(R.id.fragment_cart)
         }
     }
 

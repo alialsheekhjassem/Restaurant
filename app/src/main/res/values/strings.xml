@@ -108,4 +108,21 @@
     <string name="about_app">About app</string>
     <string name="invite_your_friends">Invite your friends</string>
     <string name="logout">Logout</string>
+    <string name="default_delivery_time">Delivery within 30 minutes, without traffic</string>
+    <string name="continue_to_next_step">Continue to next step</string>
+    <string name="hour">Hour</string>
+    <string name="number_of_people">Number of people</string>
+    <string name="table_reservation">Table Reservation</string>
+    <string name="time_for_food_to_come_to_the_table">Time for food to come to the table</string>
+    <string name="payment_method">Payment method</string>
+    <string name="customize">Customize</string>
+    <string name="special_instructions_for_the_chef_or_restaurant">Special instructions for the chef or restaurant</string>
+    <string name="total">Total</string>
+    <string name="total_items">Total of items</string>
+    <string name="delivery_price">Delivery price</string>
+    <string name="personal_info">Your personal information</string>
+    <string name="name_and_phone">Name, phone number</string>
+    <string name="order_inside_a_restaurant">Order inside a restaurant</string>
+    <string name="home_delivery">Home Delivery</string>
+    <string name="receipt_from_the_restaurant">Receipt from the restaurant</string>
 </resources>

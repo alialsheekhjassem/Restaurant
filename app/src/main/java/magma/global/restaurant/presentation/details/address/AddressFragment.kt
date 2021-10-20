@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import dagger.android.support.AndroidSupportInjection
+import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentAddressBinding
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
@@ -37,9 +38,17 @@ class AddressFragment : Fragment() {
     ): View {
         _binding = FragmentAddressBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
-        navController = findNavController()
+        navController = requireParentFragment().findNavController()
+
+        setUp()
 
         return binding.root
+    }
+
+    private fun setUp() {
+        binding.btnBack.setOnClickListener {
+            navController.popBackStack()
+        }
     }
 
     override fun onAttach(context: Context) {
