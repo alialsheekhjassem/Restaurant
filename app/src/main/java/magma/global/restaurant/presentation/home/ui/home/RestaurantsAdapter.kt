@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import magma.global.restaurant.databinding.RestaurantItemBinding
+import magma.global.restaurant.databinding.ItemRestaurantBinding
 import magma.global.restaurant.model.Restaurant
 import magma.global.restaurant.utils.listeners.RecyclerItemListener
 
@@ -15,13 +15,13 @@ class RestaurantsAdapter :
     ListAdapter<Restaurant, RestaurantsAdapter.MyViewHolder>(NewsDiffCallBacks()) {
 
     lateinit var context: Context
-    var dynamicView = false
+    //var dynamicView = false
 
     private lateinit var listener: RecyclerItemListener<Restaurant>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         context = parent.context
         val layoutInflater = LayoutInflater.from(context)
-        val binding = RestaurantItemBinding.inflate(layoutInflater, parent, false)
+        val binding = ItemRestaurantBinding.inflate(layoutInflater, parent, false)
         return MyViewHolder(binding)
 
     }
@@ -50,7 +50,7 @@ class RestaurantsAdapter :
         holder.bind(item)
     }
 
-    inner class MyViewHolder(val binding: RestaurantItemBinding) :
+    inner class MyViewHolder(val binding: ItemRestaurantBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         fun bind(item: Restaurant) {
             binding.item = item
@@ -62,7 +62,7 @@ class RestaurantsAdapter :
         }
 
         override fun onClick(p0: View?) {
-            listener.onItemClicked(getItem(adapterPosition), adapterPosition)
+            listener.onItemClicked(getItem(bindingAdapterPosition), bindingAdapterPosition)
         }
     }
 

@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_chats"
         android:icon="@drawable/chat"
-        android:title="@string/title_dashboard" />
+        android:title="@string/title_chats" />
 
     <item
         android:id="@+id/navigation_my_order"

@@ -6,18 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
 import dagger.android.support.AndroidSupportInjection
+import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentRestaurantDetailsBinding
+import magma.global.restaurant.utils.Const
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
 class RestaurantDetailsFragment : Fragment() {
 
     private var _binding: FragmentRestaurantDetailsBinding? = null
-    private lateinit var navController: NavController
+
+    private var manager: FragmentManager? = null
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -38,9 +40,20 @@ class RestaurantDetailsFragment : Fragment() {
 
         _binding = FragmentRestaurantDetailsBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
-        navController = findNavController()
+
+        manager = childFragmentManager
+        replaceBody()
 
         return binding.root
+    }
+
+    private fun replaceBody() {
+        manager!!.beginTransaction()
+            .replace(
+                R.id.nav_host_service, FoodMenuFragment(),
+                Const.TAG_FoodMenuFragment
+            )
+            .commit()
     }
 
     override fun onAttach(context: Context) {

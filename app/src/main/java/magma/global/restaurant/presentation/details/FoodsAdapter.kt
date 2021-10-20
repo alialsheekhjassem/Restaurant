@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import magma.global.restaurant.R
-import magma.global.restaurant.databinding.FoodItemBinding
+import magma.global.restaurant.databinding.ItemFoodBinding
 import magma.global.restaurant.model.Restaurant
 import magma.global.restaurant.utils.listeners.RecyclerItemFoodListener
 
@@ -23,7 +23,7 @@ class FoodsAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         context = parent.context
         val layoutInflater = LayoutInflater.from(context)
-        val binding = FoodItemBinding.inflate(layoutInflater, parent, false)
+        val binding = ItemFoodBinding.inflate(layoutInflater, parent, false)
         return MyViewHolder(binding)
     }
 
@@ -51,7 +51,7 @@ class FoodsAdapter :
         holder.bind(item)
     }
 
-    inner class MyViewHolder(val binding: FoodItemBinding) :
+    inner class MyViewHolder(val binding: ItemFoodBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         fun bind(item: Restaurant) {
             binding.item = item
@@ -131,7 +131,7 @@ class FoodsAdapter :
         var count = 0
         for (item in currentList){
             if (item.deletedDate!! > 0){
-                count = count.plus(1)
+                count = count.plus(item.deletedDate!!.toInt())
             }
         }
         return count

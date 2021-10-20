@@ -1,21 +1,21 @@
 package magma.global.restaurant.presentation.home.ui.profile
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import dagger.android.support.AndroidSupportInjection
 import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentProfileBinding
+import magma.global.restaurant.presentation.edit_profile.EditProfileActivity
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentProfileBinding? = null
 
@@ -38,24 +38,17 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
-        setUpAutoCompleteText()
+        setUpListeners()
 
         return binding.root
     }
 
-    private fun setUpAutoCompleteText() {
-        val sexArray = resources.getStringArray(R.array.sex)
-        val autoCompleteText: AutoCompleteTextView = binding.spinnerSex
-        val adapter = ArrayAdapter<CharSequence>(
-            requireActivity(),
-            getAdapterItemLayout(), sexArray
-        )
-        autoCompleteText.setText(sexArray[0])
-        autoCompleteText.setAdapter(adapter)
-    }
-
-    private fun getAdapterItemLayout(): Int {
-        return R.layout.support_simple_spinner_dropdown_item
+    private fun setUpListeners() {
+        binding.txtEdit.setOnClickListener(this)
+        binding.txtSettings.setOnClickListener(this)
+        binding.txtAboutApp.setOnClickListener(this)
+        binding.txtInvite.setOnClickListener(this)
+        binding.txtLogout.setOnClickListener(this)
     }
 
     override fun onAttach(context: Context) {
@@ -66,5 +59,26 @@ class ProfileFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.txt_edit -> {
+                val intent = Intent(requireActivity(), EditProfileActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.txt_settings -> {
+
+            }
+            R.id.txt_about_app -> {
+
+            }
+            R.id.txt_invite -> {
+
+            }
+            R.id.txt_logout -> {
+
+            }
+        }
     }
 }

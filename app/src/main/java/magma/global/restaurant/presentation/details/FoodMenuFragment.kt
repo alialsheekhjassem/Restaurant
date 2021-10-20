@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.chip.Chip
 import dagger.android.support.AndroidSupportInjection
 import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentFoodMenuBinding
@@ -54,6 +55,7 @@ class FoodMenuFragment : Fragment(), RecyclerItemFoodListener<Restaurant> {
 
         setupRecyclerView()
         setupData()
+        setupChipGroup()
 
         return binding.root
     }
@@ -62,6 +64,21 @@ class FoodMenuFragment : Fragment(), RecyclerItemFoodListener<Restaurant> {
         mFoodsAdapter.setListener(this)
         mFoodsAdapter.submitList(arrayListOf())
         binding.recyclerFoodMenu.adapter = mFoodsAdapter
+    }
+
+    private fun setupChipGroup() {
+        val chipGroup = binding.chipGroup
+        val filterArray = resources.getStringArray(R.array.food_filter)
+        var firstChip : Chip? = null
+        for (i in filterArray.indices) {
+            val chip = layoutInflater.inflate(R.layout.item_chip, chipGroup, false) as Chip
+            chip.text = filterArray[i]
+            if (i == 0) {
+                firstChip = chip
+            }
+            chipGroup.addView(chip)
+        }
+        chipGroup.check(firstChip!!.id)
     }
 
     private fun setupData() {

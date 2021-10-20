@@ -35,7 +35,7 @@
     <string name="login">Login</string>
     <string name="resend_code">Resend Code</string>
     <string name="phone_number">Phone Number</string>
-    <string name="skip">Skip</string>
+    <string name="skip"><u>Skip</u></string>
     <string name="select_your_address_to_receive_your_order">Select your address to receive your order</string>
     <string name="choose_the_right_kitchen_for_your_occasion_whether_it_is_a_restaurant_independent_chefs_or_mobile_carts">Choose the right kitchen for your occasion, whether it is a restaurant, independent chefs or mobile carts</string>
     <string name="start">Start</string>
@@ -59,6 +59,13 @@
         <item>Slow delivery</item>
     </string-array>
 
+    <string-array name="food_filter">
+        <item>Main Meals</item>
+        <item>Cold Appetizers</item>
+        <item>Hot Appetizers</item>
+        <item>Sandwich</item>
+    </string-array>
+
     <string-array name="sex">
         <item>male</item>
         <item>female</item>
@@ -67,7 +74,7 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="default_location">Beirut, Lebanon</string>
-    <string name="title_dashboard">Chats</string>
+    <string name="title_chats">Chats</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_my_order">My Orders</string>
     <string name="title_profile">Profile</string>
@@ -96,4 +103,9 @@
     <string name="confirm_address">Confirm Address</string>
     <string name="current_address">Your Current Address</string>
     <string name="change">change</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="settings_and_features">Settings and features</string>
+    <string name="about_app">About app</string>
+    <string name="invite_your_friends">Invite your friends</string>
+    <string name="logout">Logout</string>
 </resources>

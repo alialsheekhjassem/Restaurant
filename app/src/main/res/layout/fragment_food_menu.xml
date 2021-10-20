@@ -16,17 +16,39 @@
         android:layout_height="match_parent"
         tools:context=".presentation.details.FoodMenuFragment">
 
+        <HorizontalScrollView
+            android:id="@+id/horizontal_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginHorizontal="@dimen/spacing_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                style="@style/Widget.MaterialComponents.ChipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:selectionRequired="true"
+                app:singleLine="true"
+                app:singleSelection="true"/>
+
+        </HorizontalScrollView>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_food_menu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clipToPadding="true"
             android:paddingBottom="?attr/actionBarSize"
+            android:layout_marginHorizontal="@dimen/spacing_icon_padding"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:itemCount="2"
-            tools:listitem="@layout/food_item" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_view"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_food" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

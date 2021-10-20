@@ -36,7 +36,7 @@
     <string name="login">تسجيل الدخول</string>
     <string name="resend_code">إعادة إرسال الرمز</string>
     <string name="phone_number">رقم الهاتف</string>
-    <string name="skip">تخطي</string>
+    <string name="skip"><u>تخطي</u></string>
     <string name="select_your_address_to_receive_your_order">حدد عنوانك ليصلك طلبك</string>
     <string name="choose_the_right_kitchen_for_your_occasion_whether_it_is_a_restaurant_independent_chefs_or_mobile_carts">اختر المطبخ الملائم لمناسبتك ان كان مطعم او طهاة مستقلين او عربات متنقلة</string>
     <string name="start">ابدأ</string>
@@ -61,6 +61,13 @@
         <item>توصيل بطيء</item>
     </string-array>
 
+    <string-array name="food_filter">
+        <item>الوجبات الرئيسية</item>
+        <item>مقبلات باردة</item>
+        <item>مقبلات ساخنة</item>
+        <item>ساندوتش</item>
+    </string-array>
+
     <string-array name="sex">
         <item>ذكر</item>
         <item>أنثى</item>
@@ -69,7 +76,7 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">الرئيسية</string>
     <string name="default_location">بيروت، لبنان</string>
-    <string name="title_dashboard">الدردشة</string>
+    <string name="title_chats">الدردشة</string>
     <string name="title_notifications">الإشعارات</string>
     <string name="title_my_order">طلباتي</string>
     <string name="title_profile">الملف الشخصي</string>
@@ -98,4 +105,9 @@
     <string name="confirm_address">تأكيد العنوان</string>
     <string name="current_address">عنوانك الحالي</string>
     <string name="change">تغيير</string>
+    <string name="edit_profile">تعديل الملف الشخصي</string>
+    <string name="settings_and_features">الإعدادات والخصائص</string>
+    <string name="about_app">عن التطبيق</string>
+    <string name="invite_your_friends">قم بدعوة أصدقائك</string>
+    <string name="logout">تسجيل الخروج</string>
 </resources>

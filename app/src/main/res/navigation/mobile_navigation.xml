@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_chats"
         android:name="magma.global.restaurant.presentation.home.ui.chats.ChatsFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_chats"
         tools:layout="@layout/fragment_chats" />
 
     <fragment

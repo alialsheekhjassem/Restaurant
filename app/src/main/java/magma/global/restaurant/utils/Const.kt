@@ -13,5 +13,7 @@ class Const {
         const val TYPE_RESTAURANT = "restaurant"
         const val DATE_FORMAT = "yyyy-MM-dd_HHmmss"
 
+        const val TAG_FoodMenuFragment = "FoodMenuFragment"
+
     }
 }

@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import dagger.android.support.AndroidSupportInjection
+import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentLoginBinding
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
@@ -18,6 +20,7 @@ class LoginFragment : Fragment() {
     private var imageResource = 0
     private var position = 0
     lateinit var binding: FragmentLoginBinding
+    private var viewPager: ViewPager2? = null
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -43,11 +46,16 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
-        /*binding.txtTitle.text = title
-        binding.txtSubTitle.text = description
-        binding.imgBoard.setImageResource(imageResource)*/
+        binding.btnStart.setOnClickListener {
+            viewPager?.currentItem = 2
+        }
 
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewPager = requireActivity().findViewById(R.id.viewPager)
     }
 
     override fun onAttach(context: Context) {

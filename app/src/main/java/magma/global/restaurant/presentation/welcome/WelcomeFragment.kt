@@ -1,14 +1,18 @@
 package magma.global.restaurant.presentation.welcome
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import dagger.android.support.AndroidSupportInjection
+import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentWelcomeBinding
+import magma.global.restaurant.presentation.home.HomeActivity
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
@@ -18,6 +22,7 @@ class WelcomeFragment : Fragment() {
     private var imageResource = 0
     private var position = 0
     lateinit var binding: FragmentWelcomeBinding
+    private var viewPager: ViewPager2? = null
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -43,16 +48,30 @@ class WelcomeFragment : Fragment() {
         binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
-        /*binding.txtTitle.text = title
-        binding.txtSubTitle.text = description
-        binding.imgBoard.setImageResource(imageResource)*/
+        binding.btnStart.setOnClickListener {
+            viewPager?.currentItem = 1
+        }
+        binding.txtSkip.setOnClickListener {
+            goToHomeActivity()
+        }
 
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewPager = requireActivity().findViewById(R.id.viewPager)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
+    }
+
+    private fun goToHomeActivity() {
+        val intent = Intent(requireActivity(), HomeActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     companion object {

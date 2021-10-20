@@ -29,12 +29,12 @@
         <argument android:name="fragment_address" />
         <action
             android:id="@+id/action_fragment_address_to_fragment_details"
-            app:destination="@id/fragment_food"
+            app:destination="@id/fragment_details"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@id/fragment_food"
+            app:popUpTo="@id/fragment_details"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
