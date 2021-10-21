@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -22,6 +23,7 @@ class CartFragment : Fragment(), RecyclerItemCartListener<Restaurant> {
 
     private var _binding: FragmentCartBinding? = null
     private lateinit var navController: NavController
+    private var btnClose: ImageButton? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -68,6 +70,17 @@ class CartFragment : Fragment(), RecyclerItemCartListener<Restaurant> {
             restaurantList.add(Restaurant(filter, filter, null, false, 1L))
         }
         mCartAdapter.submitList(restaurantList)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        btnClose = requireActivity().findViewById(R.id.btn_close)
+        btnClose?.visibility = View.VISIBLE
+
+        btnClose?.setOnClickListener {
+            navController.popBackStack()
+            btnClose?.visibility = View.GONE
+        }
     }
 
     override fun onAttach(context: Context) {

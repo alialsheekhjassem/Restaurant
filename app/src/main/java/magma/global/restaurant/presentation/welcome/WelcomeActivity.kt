@@ -1,7 +1,6 @@
 package magma.global.restaurant.presentation.welcome
 
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
@@ -41,26 +40,10 @@ class WelcomeActivity : AppCompatActivity() {
         mViewPager = binding.viewPager
         mViewPager.adapter = WelcomeViewPagerAdapter(this, this)
         mViewPager.offscreenPageLimit = 1
-        mViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                hideKeyboard()
-            }
-
-            override fun onPageScrolled(arg0: Int, arg1: Float, arg2: Int) {}
-            override fun onPageScrollStateChanged(arg0: Int) {}
-        })
         TabLayoutMediator(binding.pageIndicator, mViewPager) { _, _ -> }.attach()
     }
 
     /*private fun getItem(): Int {
         return mViewPager.currentItem
     }*/
-
-    fun hideKeyboard() {
-        val view = this.currentFocus
-        if (view != null) {
-            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
-    }
 }

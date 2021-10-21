@@ -3,9 +3,13 @@ package magma.global.restaurant.presentation.welcome
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
@@ -61,6 +65,16 @@ class WelcomeFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         viewPager = requireActivity().findViewById(R.id.viewPager)
+
+        viewPager?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                Log.d("TAG", "onPageSelected: $position")
+                hideKeyboard()
+            }
+
+            override fun onPageScrolled(arg0: Int, arg1: Float, arg2: Int) {}
+            override fun onPageScrollStateChanged(arg0: Int) {}
+        })
     }
 
     override fun onAttach(context: Context) {
@@ -72,6 +86,12 @@ class WelcomeFragment : Fragment() {
         val intent = Intent(requireActivity(), HomeActivity::class.java)
         startActivity(intent)
         requireActivity().finish()
+    }
+
+    fun hideKeyboard() {
+        val view = binding.root
+        val imm = requireActivity().getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     companion object {

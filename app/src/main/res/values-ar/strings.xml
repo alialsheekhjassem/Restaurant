@@ -128,4 +128,14 @@
     <string name="home_delivery">توصيل إلى المنزل</string>
     <string name="receipt_from_the_restaurant">استلام من المطعم</string>
     <string name="application_not_found">التطبيق غير موجود</string>
+    <string name="by_card_online">عن طريق بطاقة (اون لاين)</string>
+    <string name="pay_on_delivery">الدفع عند التوصيل</string>
+    <string name="share_the_bill_to_a_friend">مشاركة الفاتورة الى صديق</string>
+    <string name="we_accept_all_type_1_type_2_and_type_3_cards">نقبل جميع البطاقات من النوع 1 والنوع 2 والنوع 3</string>
+    <string name="card_name">اسم البطاقة</string>
+    <string name="card_number">رقم البطاقة</string>
+    <string name="card_end_date">تاريخ انتهاء البطاقة (شهر/سنة)</string>
+    <string name="save_card_information">حفظ معلومات البطاقة</string>
+    <string name="confirm">تأكيد</string>
+    <string name="copy_link">نسخ الرابط</string>
 </resources>

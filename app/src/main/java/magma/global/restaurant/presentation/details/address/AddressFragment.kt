@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TimePicker
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -48,7 +49,6 @@ class AddressFragment : Fragment(), View.OnClickListener,
         navController = requireParentFragment().findNavController()
 
         setUpListeners()
-        setUp()
 
         return binding.root
     }
@@ -56,10 +56,10 @@ class AddressFragment : Fragment(), View.OnClickListener,
     private fun setUpListeners() {
         binding.btnBack.setOnClickListener(this)
         binding.txtHour.setOnClickListener(this)
-    }
-
-    private fun setUp() {
-
+        binding.btnContinue.setOnClickListener(this)
+        binding.txtTitleOnline.setOnClickListener(this)
+        binding.txtTitlePayOnDelivery.setOnClickListener(this)
+        binding.txtTitleShareBill.setOnClickListener(this)
     }
 
     override fun onAttach(context: Context) {
@@ -75,11 +75,63 @@ class AddressFragment : Fragment(), View.OnClickListener,
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_back -> {
-                navController.popBackStack()
+                backToPreviousStep()
             }
             R.id.txt_hour -> {
                 showTimeDialog()
             }
+            R.id.btn_continue -> {
+                goToNextStep()
+            }
+            /*R.id.txt_title_online -> {
+                if (binding.expandableLyt.isExpanded)
+                    binding.expandableLyt.collapse()
+                else binding.expandableLyt.expand()
+            }
+            R.id.txt_title_pay_on_delivery -> {
+                if (binding.expandableLytPay.isExpanded)
+                    binding.expandableLytPay.collapse()
+                else binding.expandableLytPay.expand()
+            }
+            R.id.txt_title_share_bill -> {
+                if (binding.expandableLytShare.isExpanded)
+                    binding.expandableLytShare.collapse()
+                else binding.expandableLytShare.expand()
+            }*/
+        }
+    }
+
+    private fun backToPreviousStep() {
+        if (binding.expandableLyt.isExpanded && !binding.expandableLytPay.isExpanded && !binding.expandableLytShare.isExpanded) {
+            binding.btnBack.isEnabled = false
+            binding.expandableLyt.collapse()
+        } else if (binding.expandableLytPay.isExpanded && !binding.expandableLytShare.isExpanded) {
+            binding.expandableLyt.expand()
+            binding.expandableLytPay.collapse()
+        } else if (binding.expandableLytShare.isExpanded) {
+            binding.expandableLytPay.expand()
+            binding.expandableLytShare.collapse()
+        }
+    }
+
+    private fun goToNextStep() {
+        if (!binding.expandableLyt.isExpanded && !binding.expandableLytPay.isExpanded && !binding.expandableLytShare.isExpanded) {
+            binding.btnBack.isEnabled = true
+            binding.expandableLyt.expand()
+        } else if (!binding.expandableLytPay.isExpanded && !binding.expandableLytShare.isExpanded) {
+            binding.btnBack.isEnabled = true
+            binding.expandableLyt.collapse()
+            binding.expandableLytPay.expand()
+        } else if (!binding.expandableLytShare.isExpanded) {
+            binding.btnBack.isEnabled = true
+            binding.expandableLyt.collapse()
+            binding.expandableLytPay.collapse()
+            binding.expandableLytShare.expand()
+        } else {
+            binding.btnBack.isEnabled = false
+            binding.expandableLytShare.collapse()
+            Toast.makeText(binding.root.context, getString(R.string.confirm), Toast.LENGTH_SHORT)
+                .show()
         }
     }
 

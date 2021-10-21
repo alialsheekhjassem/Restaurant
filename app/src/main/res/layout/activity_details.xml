@@ -18,39 +18,42 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/img_restaurant"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
+                    android:layout_height="0dp"
                     android:contentDescription="@string/app_name"
+                    android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/image1"
+                    android:src="@drawable/image2"
                     android:tint="@color/colorTransparency"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="UseAppTint" />
 
-                <!--<ImageButton
-                    android:id="@+id/btn_dashboard"
+                <ImageButton
+                    android:id="@+id/btn_close"
                     android:layout_width="@dimen/image_category_item_size"
                     android:layout_height="@dimen/image_category_item_size"
                     android:layout_marginEnd="@dimen/spacing_large"
-                    android:layout_marginTop="@dimen/spacing_profile_top"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/menu"
+                    android:src="@drawable/cancel"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />-->
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
                     android:id="@+id/btn_back"

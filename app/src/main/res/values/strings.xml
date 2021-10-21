@@ -126,4 +126,14 @@
     <string name="home_delivery">Home Delivery</string>
     <string name="receipt_from_the_restaurant">Receipt from the restaurant</string>
     <string name="application_not_found">Application not found</string>
+    <string name="by_card_online">By card (online)</string>
+    <string name="pay_on_delivery">Pay on delivery</string>
+    <string name="share_the_bill_to_a_friend">Share the bill to a friend</string>
+    <string name="we_accept_all_type_1_type_2_and_type_3_cards">We accept all type 1, type 2 and type 3 cards</string>
+    <string name="card_name">Card name</string>
+    <string name="card_number">Card number</string>
+    <string name="card_end_date">Card end date (month/year)</string>
+    <string name="save_card_information">Save card information</string>
+    <string name="confirm">Confirm</string>
+    <string name="copy_link">Copy link</string>
 </resources>
