@@ -127,4 +127,5 @@
     <string name="order_inside_a_restaurant">طلب داخل مطعم</string>
     <string name="home_delivery">توصيل إلى المنزل</string>
     <string name="receipt_from_the_restaurant">استلام من المطعم</string>
+    <string name="application_not_found">التطبيق غير موجود</string>
 </resources>

@@ -181,7 +181,7 @@
                 android:layout_height="wrap_content"
                 app:barrierDirection="bottom"/>
 
-            <com.google.android.material.button.MaterialButtonToggleGroup
+            <magma.global.restaurant.utils.MonsterButtonToggleGroup
                 android:id="@+id/group_toggle_buttons_categories"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                     android:textColor="@color/color_text_toggle_selector"
                     app:backgroundTint="@color/color_toggle_selector" />
 
-            </com.google.android.material.button.MaterialButtonToggleGroup>
+            </magma.global.restaurant.utils.MonsterButtonToggleGroup>
 
             <!--<com.google.android.material.chip.ChipGroup
                 android:id="@+id/chip_group_filter"

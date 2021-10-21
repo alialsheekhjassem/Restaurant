@@ -44,6 +44,7 @@
             android:clipToPadding="true"
             android:paddingBottom="?attr/actionBarSize"
             android:layout_marginHorizontal="@dimen/spacing_icon_padding"
+            android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

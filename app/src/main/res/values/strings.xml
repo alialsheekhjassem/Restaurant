@@ -125,4 +125,5 @@
     <string name="order_inside_a_restaurant">Order inside a restaurant</string>
     <string name="home_delivery">Home Delivery</string>
     <string name="receipt_from_the_restaurant">Receipt from the restaurant</string>
+    <string name="application_not_found">Application not found</string>
 </resources>
