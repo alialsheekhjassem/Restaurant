@@ -1,12 +1,14 @@
 package magma.global.restaurant.presentation.details.address
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
@@ -17,16 +19,18 @@ import androidx.navigation.fragment.findNavController
 import dagger.android.support.AndroidSupportInjection
 import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentAddressBinding
-import magma.global.restaurant.utils.Const
-import magma.global.restaurant.utils.TimePickerParentFragment
-import magma.global.restaurant.utils.ViewModelFactory
+import magma.global.restaurant.utils.*
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 class AddressFragment : Fragment(), View.OnClickListener,
-    TimePickerDialog.OnTimeSetListener {
+    TimePickerDialog.OnTimeSetListener,
+    DatePickerDialog.OnDateSetListener {
 
     private var _binding: FragmentAddressBinding? = null
     private lateinit var navController: NavController
+    private var currentViewId = 0
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -56,6 +60,9 @@ class AddressFragment : Fragment(), View.OnClickListener,
     private fun setUpListeners() {
         binding.btnBack.setOnClickListener(this)
         binding.txtHour.setOnClickListener(this)
+        binding.txtDay.setOnClickListener(this)
+        binding.txtNumOfPeople.setOnClickListener(this)
+        binding.txtTimeForFoodHour.setOnClickListener(this)
         binding.btnContinue.setOnClickListener(this)
         binding.txtTitleOnline.setOnClickListener(this)
         binding.txtTitlePayOnDelivery.setOnClickListener(this)
@@ -77,27 +84,21 @@ class AddressFragment : Fragment(), View.OnClickListener,
             R.id.btn_back -> {
                 backToPreviousStep()
             }
+            R.id.txt_day -> {
+                showDateDialog()
+            }
             R.id.txt_hour -> {
-                showTimeDialog()
+                showTimeDialog(R.id.txt_hour)
+            }
+            R.id.txt_num_of_people -> {
+                //showTimeDialog()
+            }
+            R.id.txt_time_for_food_hour -> {
+                showTimeDialog(R.id.txt_time_for_food_hour)
             }
             R.id.btn_continue -> {
                 goToNextStep()
             }
-            /*R.id.txt_title_online -> {
-                if (binding.expandableLyt.isExpanded)
-                    binding.expandableLyt.collapse()
-                else binding.expandableLyt.expand()
-            }
-            R.id.txt_title_pay_on_delivery -> {
-                if (binding.expandableLytPay.isExpanded)
-                    binding.expandableLytPay.collapse()
-                else binding.expandableLytPay.expand()
-            }
-            R.id.txt_title_share_bill -> {
-                if (binding.expandableLytShare.isExpanded)
-                    binding.expandableLytShare.collapse()
-                else binding.expandableLytShare.expand()
-            }*/
         }
     }
 
@@ -135,7 +136,14 @@ class AddressFragment : Fragment(), View.OnClickListener,
         }
     }
 
-    private fun showTimeDialog() {
+    private fun showDateDialog() {
+        val datePicker: DialogFragment = DatePickerChildFragment()
+        datePicker.setTargetFragment(this@AddressFragment, 0)
+        datePicker.show(parentFragmentManager, Const.TAG_DatePickerParentFragment)
+    }
+
+    private fun showTimeDialog(id: Int) {
+        currentViewId = id
         val datePicker: DialogFragment = TimePickerParentFragment()
         datePicker.setTargetFragment(this@AddressFragment, 0)
         datePicker.show(parentFragmentManager, Const.TAG_TimePickerParentFragment)
@@ -144,6 +152,19 @@ class AddressFragment : Fragment(), View.OnClickListener,
     @SuppressLint("SetTextI18n")
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         val amPm = if (hourOfDay < 12) "AM" else "PM"
-        binding.txtHour.text = hourOfDay.toString() + amPm
+        if (currentViewId == R.id.txt_hour)
+            binding.txtHour.text ="$hourOfDay:$minute$amPm"
+        else if (currentViewId == R.id.txt_time_for_food_hour)
+                binding.txtTimeForFoodHour.text = "$hourOfDay:$minute$amPm"
+    }
+
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        val c = Calendar.getInstance()
+        c[Calendar.YEAR] = year
+        c[Calendar.MONTH] = month
+        c[Calendar.DAY_OF_MONTH] = dayOfMonth
+        val tf = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
+        val currentDateString = tf.format(c.time)
+        binding.txtDay.text = currentDateString
     }
 }
