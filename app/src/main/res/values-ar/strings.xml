@@ -138,4 +138,6 @@
     <string name="save_card_information">حفظ معلومات البطاقة</string>
     <string name="confirm">تأكيد</string>
     <string name="copy_link">نسخ الرابط</string>
+    <string name="field_can_not_be_empty">الحقل لا يمكن أن يكون فارغاً</string>
+    <string name="please_enter_avalid_email">الرجاء إدخال بريد إلكتروني صالح</string>
 </resources>

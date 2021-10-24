@@ -40,6 +40,7 @@ class WelcomeActivity : AppCompatActivity() {
         mViewPager = binding.viewPager
         mViewPager.adapter = WelcomeViewPagerAdapter(this, this)
         mViewPager.offscreenPageLimit = 1
+        mViewPager.isUserInputEnabled = false
         TabLayoutMediator(binding.pageIndicator, mViewPager) { _, _ -> }.attach()
     }
 

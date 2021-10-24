@@ -29,6 +29,7 @@ import magma.global.restaurant.databinding.ActivityEditProfileBinding
 import magma.global.restaurant.presentation.home.ui.profile.ProfileViewModel
 import magma.global.restaurant.utils.Const
 import magma.global.restaurant.utils.DatePickerParentFragment
+import magma.global.restaurant.utils.StringRuleUtil
 import magma.global.restaurant.utils.ViewModelFactory
 import java.io.File
 import java.io.IOException
@@ -77,6 +78,7 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener,
         binding.viewModel = viewModel
         setContentView(binding.root)
         supportActionBar?.hide()
+        binding.stringRuleUtil = StringRuleUtil
 
         setUpAutoCompleteText()
         setUpListeners()

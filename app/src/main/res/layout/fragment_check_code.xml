@@ -48,6 +48,7 @@
 
             <com.mukesh.OtpView
                 android:id="@+id/otp_number"
+                style="@style/OtpWidget.OtpView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_large"

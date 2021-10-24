@@ -9,6 +9,10 @@
             name="viewModel"
             type="magma.global.restaurant.presentation.home.ui.profile.ProfileViewModel" />
 
+        <variable
+            name="StringRuleUtil"
+            type="magma.global.restaurant.utils.StringRuleUtil" />
+
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -50,8 +54,8 @@
                 android:id="@+id/btn_back"
                 android:layout_width="@dimen/image_category_item_size"
                 android:layout_height="@dimen/image_category_item_size"
-                android:layout_marginTop="@dimen/spacing_large"
                 android:layout_marginStart="@dimen/spacing_large"
+                android:layout_marginTop="@dimen/spacing_large"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/next"
@@ -201,8 +205,8 @@
                     android:id="@+id/spinner_sex"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/size_small"
                     android:inputType="none"
+                    android:textSize="@dimen/size_small"
                     tools:ignore="LabelFor" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -222,12 +226,12 @@
             <TextView
                 android:id="@+id/txt_birthdate_day"
                 style="@style/MaterialTextViewSmallStyle"
-                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
                 android:layout_marginTop="@dimen/spacing_icon_padding"
                 android:background="@drawable/bg_outline"
+                android:gravity="center_vertical"
                 android:padding="@dimen/spacing_large"
                 android:text="@string/day"
                 android:textColor="@color/grey_40"
@@ -239,12 +243,12 @@
             <TextView
                 android:id="@+id/txt_birthdate_month"
                 style="@style/MaterialTextViewSmallStyle"
-                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
                 android:layout_marginTop="@dimen/spacing_icon_padding"
                 android:background="@drawable/bg_outline"
+                android:gravity="center_vertical"
                 android:padding="@dimen/spacing_large"
                 android:text="@string/month"
                 android:textColor="@color/grey_40"
@@ -256,12 +260,12 @@
             <TextView
                 android:id="@+id/txt_birthdate_year"
                 style="@style/MaterialTextViewSmallStyle"
-                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
                 android:layout_marginTop="@dimen/spacing_icon_padding"
                 android:background="@drawable/bg_outline"
+                android:gravity="center_vertical"
                 android:padding="@dimen/spacing_large"
                 android:text="@string/year"
                 android:textColor="@color/grey_40"
@@ -306,13 +310,13 @@
             <TextView
                 android:id="@+id/txt_place"
                 style="@style/MaterialTextViewSmallStyle"
-                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
                 android:layout_marginTop="@dimen/spacing_icon_padding"
                 android:layout_marginBottom="@dimen/spacing_large"
                 android:background="@drawable/bg_outline"
+                android:gravity="center_vertical"
                 android:padding="@dimen/spacing_large"
                 android:text="@string/house"
                 app:layout_constraintBottom_toTopOf="@+id/barrier"
@@ -324,7 +328,7 @@
                 android:id="@+id/barrier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:barrierDirection="bottom"/>
+                app:barrierDirection="bottom" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_save"
@@ -334,11 +338,11 @@
                 android:layout_margin="@dimen/spacing_large"
                 android:text="@string/save"
                 android:textSize="@dimen/size_small"
-                app:layout_constraintWidth_percent="0.3"
-                app:layout_constraintTop_toBottomOf="@+id/barrier"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btn_cancel"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/barrier"
+                app:layout_constraintWidth_percent="0.3" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_cancel"
@@ -347,14 +351,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_large"
                 android:text="@string/cancel"
-                app:backgroundTint="@color/grey_10"
                 android:textColor="@color/black"
                 android:textSize="@dimen/size_small"
-                app:layout_constraintWidth_percent="0.3"
-                app:layout_constraintTop_toBottomOf="@+id/barrier"
+                app:backgroundTint="@color/grey_10"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_save" />
+                app:layout_constraintStart_toEndOf="@+id/btn_save"
+                app:layout_constraintTop_toBottomOf="@+id/barrier"
+                app:layout_constraintWidth_percent="0.3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -136,4 +136,6 @@
     <string name="save_card_information">Save card information</string>
     <string name="confirm">Confirm</string>
     <string name="copy_link">Copy link</string>
+    <string name="field_can_not_be_empty">Field can not be empty</string>
+    <string name="please_enter_avalid_email">please enter a valid email</string>
 </resources>
