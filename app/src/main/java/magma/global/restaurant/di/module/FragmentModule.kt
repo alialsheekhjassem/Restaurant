@@ -12,24 +12,39 @@ import magma.global.restaurant.presentation.home.ui.home.RestaurantsFragment
 import magma.global.restaurant.presentation.home.ui.my_order.MyOrderFragment
 import magma.global.restaurant.presentation.home.ui.profile.ProfileFragment
 import magma.global.restaurant.presentation.home.ui.notifications.NotificationsFragment
-import magma.global.restaurant.presentation.welcome.CheckCodeFragment
-import magma.global.restaurant.presentation.welcome.LoginFragment
-import magma.global.restaurant.presentation.welcome.WelcomeFragment
+import magma.global.restaurant.presentation.onboarding.OnBoardingFragment
+import magma.global.restaurant.presentation.registration.check_code.CheckCodeFragment
+import magma.global.restaurant.presentation.registration.language.LanguageFragment
+import magma.global.restaurant.presentation.registration.login.LoginFragment
+import magma.global.restaurant.presentation.registration.register.RegisterFragment
+import magma.global.restaurant.presentation.registration.register_login.RegisterLoginFragment
 
 @Module
-internal abstract class FragmentModule
-{
+internal abstract class FragmentModule {
+
+    /*OnBoarding*/
+    @ContributesAndroidInjector
+    abstract fun contributeOnBoardingFragment(): OnBoardingFragment
+
+
+    /*Account*/
+    @ContributesAndroidInjector
+    abstract fun contributeLanguageFragment(): LanguageFragment
 
     @ContributesAndroidInjector
-    abstract fun contributeWelcomeFragment(): WelcomeFragment
+    abstract fun contributeRegisterLoginFragment(): RegisterLoginFragment
 
     @ContributesAndroidInjector
     abstract fun contributeLoginFragment(): LoginFragment
 
     @ContributesAndroidInjector
+    abstract fun contributeRegisterFragment(): RegisterFragment
+
+    @ContributesAndroidInjector
     abstract fun contributeCheckCodeFragment(): CheckCodeFragment
 
-    //Home Activity
+
+    /*Home*/
     @ContributesAndroidInjector
     abstract fun contributeHomeFragment(): HomeFragment
 

@@ -1,4 +1,4 @@
-package magma.global.restaurant.presentation.welcome
+package magma.global.restaurant.presentation.registration.check_code
 
 import android.content.Context
 import android.content.Intent
@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import dagger.android.support.AndroidSupportInjection
 import magma.global.restaurant.databinding.FragmentCheckCodeBinding
 import magma.global.restaurant.presentation.home.HomeActivity
@@ -25,8 +25,8 @@ class CheckCodeFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: WelcomeViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory).get(WelcomeViewModel::class.java)
+    private val viewModel: CheckCodeViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory).get(CheckCodeViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,11 +46,11 @@ class CheckCodeFragment : Fragment() {
         binding = FragmentCheckCodeBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
-        binding.otpNumber.setOtpCompletionListener {
-            binding.btnStart.performClick()
-        }
-        binding.btnStart.setOnClickListener {
+        binding.btnConfirm.setOnClickListener {
             goToHomeActivity()
+        }
+        binding.btnEditPhoneNumber.setOnClickListener {
+            Navigation.findNavController(binding.root).navigateUp()
         }
 
         return binding.root

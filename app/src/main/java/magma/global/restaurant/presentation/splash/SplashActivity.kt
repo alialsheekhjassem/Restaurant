@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import magma.global.restaurant.presentation.welcome.WelcomeActivity
+import magma.global.restaurant.presentation.onboarding.OnBoardingActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun goToMapsActivity() {
-        val intent = Intent(this@SplashActivity, WelcomeActivity::class.java)
+        val intent = Intent(this@SplashActivity, OnBoardingActivity::class.java)
         startActivity(intent)
         finish()
     }

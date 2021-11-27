@@ -1,4 +1,4 @@
-package magma.global.restaurant.presentation.welcome
+package magma.global.restaurant.presentation.onboarding
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,28 +6,28 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.android.AndroidInjection
-import magma.global.restaurant.databinding.ActivityWelcomeBinding
+import magma.global.restaurant.databinding.ActivityOnboardingBinding
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
-class WelcomeActivity : AppCompatActivity() {
+class OnBoardingActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityWelcomeBinding
+    private lateinit var binding: ActivityOnboardingBinding
 
     private lateinit var mViewPager: ViewPager2
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: WelcomeViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory).get(WelcomeViewModel::class.java)
+    private val viewModel: OnBoardingViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory).get(OnBoardingViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
-        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        binding = ActivityOnboardingBinding.inflate(layoutInflater)
         binding.viewModel = viewModel
         setContentView(binding.root)
         supportActionBar?.hide()
@@ -38,9 +38,9 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun setUp() {
         mViewPager = binding.viewPager
-        mViewPager.adapter = WelcomeViewPagerAdapter(this, this)
-        mViewPager.offscreenPageLimit = 1
-        mViewPager.isUserInputEnabled = false
+        mViewPager.adapter = OnBoardingViewPagerAdapter(this, this)
+        //mViewPager.offscreenPageLimit = 1
+        //mViewPager.isUserInputEnabled = false
         TabLayoutMediator(binding.pageIndicator, mViewPager) { _, _ -> }.attach()
     }
 

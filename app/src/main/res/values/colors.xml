@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2d7330</color>
+    <!--Basic Colors-->
+    <color name="colorPrimary">#9B0756</color>
+    <color name="yellow">#F8AC10</color>
+    <color name="light_gray">#FEFEFE</color>
+    <color name="dark_red">#5E4E4E</color>
+    <color name="gray">#616265</color>
+
     <color name="green_200">#2d7330</color>
     <color name="green_500">#2d7330</color>
     <color name="green_700">#225b25</color>
     <color name="teal_200">#2d7330</color>
     <color name="teal_700">#2d7330</color>
-    <color name="yellow">#ffc410</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorTransparency">#6F000000</color>

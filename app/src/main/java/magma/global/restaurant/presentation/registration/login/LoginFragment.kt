@@ -1,16 +1,18 @@
-package magma.global.restaurant.presentation.welcome
+package magma.global.restaurant.presentation.registration.login
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager2.widget.ViewPager2
+import androidx.navigation.Navigation
 import dagger.android.support.AndroidSupportInjection
 import magma.global.restaurant.R
 import magma.global.restaurant.databinding.FragmentLoginBinding
+import magma.global.restaurant.presentation.home.HomeActivity
 import magma.global.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
@@ -20,13 +22,12 @@ class LoginFragment : Fragment() {
     private var imageResource = 0
     private var position = 0
     lateinit var binding: FragmentLoginBinding
-    private var viewPager: ViewPager2? = null
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: WelcomeViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory).get(WelcomeViewModel::class.java)
+    private val viewModel: LoginViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,16 +47,20 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
 
-        binding.btnStart.setOnClickListener {
-            viewPager?.currentItem = 2
+        binding.txtTitleDoNotHaveAccount.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_login_to_register)
+        }
+        binding.btnLogin.setOnClickListener {
+            goToHomeActivity()
         }
 
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-        viewPager = requireActivity().findViewById(R.id.viewPager)
+    private fun goToHomeActivity() {
+        val intent = Intent(requireActivity(), HomeActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     override fun onAttach(context: Context) {

@@ -35,7 +35,7 @@
     <string name="login">Login</string>
     <string name="resend_code">Resend Code</string>
     <string name="phone_number">Phone Number</string>
-    <string name="skip"><u>Skip</u></string>
+    <string name="skip">Skip</string>
     <string name="select_your_address_to_receive_your_order">Select your address to receive your order</string>
     <string name="choose_the_right_kitchen_for_your_occasion_whether_it_is_a_restaurant_independent_chefs_or_mobile_carts">Choose the right kitchen for your occasion, whether it is a restaurant, independent chefs or mobile carts</string>
     <string name="start">Start</string>
@@ -138,4 +138,27 @@
     <string name="copy_link">Copy link</string>
     <string name="field_can_not_be_empty">Field can not be empty</string>
     <string name="please_enter_avalid_email">please enter a valid email</string>
+    <string name="next">Next</string>
+    <string name="top_restaurant">Top Restaurant</string>
+    <string name="powered_by">Powered by</string>
+    <string name="magma">Magma</string>
+    <string name="mobile">Mobile</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="do_not_have_account">Don\'t have account? Sign Up</string>
+    <string name="sign_in_with_facebook">Sign in with facebook</string>
+    <string name="sign_in_with_google">Sign in with google</string>
+    <string name="or">or</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="continue_as_guest">Continue As Guest</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email_hint">Email : (Optional)</string>
+    <string name="accept_terms_and_conditions">By clicking on the verfiy and sign up you are accepting all the Terms and Conditions</string>
+    <string name="verify_and_sign_up">Verify and Sign Up</string>
+    <string name="already_have_and_account_sign_in">Already have and account? Sign In</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="a_verification_code_has_been_sent">A verification code has been sent to your mobile number.</string>
+    <string name="edit_phone_number">Edit Phone Number</string>
+    <string name="didn_t_receive_the_code_resend_45s">Didn\'t receive the code? Resend (45s)</string>
 </resources>

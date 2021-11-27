@@ -5,13 +5,17 @@ import dagger.android.ContributesAndroidInjector
 import magma.global.restaurant.presentation.details.DetailsActivity
 import magma.global.restaurant.presentation.edit_profile.EditProfileActivity
 import magma.global.restaurant.presentation.home.HomeActivity
-import magma.global.restaurant.presentation.welcome.WelcomeActivity
+import magma.global.restaurant.presentation.onboarding.OnBoardingActivity
+import magma.global.restaurant.presentation.registration.RegistrationActivity
 
 @Module
 abstract class ActivityModule {
 
     @ContributesAndroidInjector
-    abstract fun contributeWelcomeActivity(): WelcomeActivity
+    abstract fun contributeOnBoardingActivity(): OnBoardingActivity
+
+    @ContributesAndroidInjector
+    abstract fun contributeRegistrationActivity(): RegistrationActivity
 
     @ContributesAndroidInjector
     abstract fun contributeHomeActivity(): HomeActivity

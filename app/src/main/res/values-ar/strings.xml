@@ -36,7 +36,7 @@
     <string name="login">تسجيل الدخول</string>
     <string name="resend_code">إعادة إرسال الرمز</string>
     <string name="phone_number">رقم الهاتف</string>
-    <string name="skip"><u>تخطي</u></string>
+    <string name="skip">تخطي</string>
     <string name="select_your_address_to_receive_your_order">حدد عنوانك ليصلك طلبك</string>
     <string name="choose_the_right_kitchen_for_your_occasion_whether_it_is_a_restaurant_independent_chefs_or_mobile_carts">اختر المطبخ الملائم لمناسبتك ان كان مطعم او طهاة مستقلين او عربات متنقلة</string>
     <string name="start">ابدأ</string>
@@ -140,4 +140,27 @@
     <string name="copy_link">نسخ الرابط</string>
     <string name="field_can_not_be_empty">الحقل لا يمكن أن يكون فارغاً</string>
     <string name="please_enter_avalid_email">الرجاء إدخال بريد إلكتروني صالح</string>
+    <string name="next">التالي</string>
+    <string name="top_restaurant">افضل المطاعم</string>
+    <string name="powered_by">مشغل بواسطة</string>
+    <string name="magma">Magma</string>
+    <string name="mobile">الموبايل</string>
+    <string name="password">كلمة السر</string>
+    <string name="sign_in">تسجيل دخول</string>
+    <string name="forget_password">هل نسيت كلمة السر</string>
+    <string name="do_not_have_account">ليس لديك حساب؟ التسجيل</string>
+    <string name="sign_in_with_facebook">تسجيل دخول فيسبوك</string>
+    <string name="sign_in_with_google">تسجيل دخول جوجل</string>
+    <string name="or">أو</string>
+    <string name="sign_up">إنشاء حساب</string>
+    <string name="continue_as_guest">الاستمرار كضيف</string>
+    <string name="confirm_password">تأكيد كلمة السر</string>
+    <string name="email_hint">البريد الالكتروني : (اختياري)</string>
+    <string name="accept_terms_and_conditions">بالنقر على التحقق والتسجيل فإنك تقبل جميع الشروط والأحكام</string>
+    <string name="verify_and_sign_up">تحقق واشترك</string>
+    <string name="already_have_and_account_sign_in">لديك بالفعل حساب؟ تسجيل الدخول</string>
+    <string name="verification_code">رمز التحقق</string>
+    <string name="a_verification_code_has_been_sent">تم إرسال رمز التحقق إلى رقم هاتفك المحمول.</string>
+    <string name="edit_phone_number">تعديل رقم الموبايل</string>
+    <string name="didn_t_receive_the_code_resend_45s">ألم يصلك الرمز؟ إعادة إرسال (45 ثانية)</string>
 </resources>

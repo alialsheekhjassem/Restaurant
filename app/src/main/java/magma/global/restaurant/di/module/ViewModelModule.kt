@@ -13,7 +13,11 @@ import magma.global.restaurant.presentation.home.ui.home.HomeViewModel
 import magma.global.restaurant.presentation.home.ui.my_order.MyOrderViewModel
 import magma.global.restaurant.presentation.home.ui.profile.ProfileViewModel
 import magma.global.restaurant.presentation.home.ui.notifications.NotificationsViewModel
-import magma.global.restaurant.presentation.welcome.WelcomeViewModel
+import magma.global.restaurant.presentation.onboarding.OnBoardingViewModel
+import magma.global.restaurant.presentation.registration.check_code.CheckCodeViewModel
+import magma.global.restaurant.presentation.registration.language.LanguageViewModel
+import magma.global.restaurant.presentation.registration.login.LoginViewModel
+import magma.global.restaurant.presentation.registration.register.RegisterViewModel
 
 // Because of @Binds, ViewModelModule needs to be an abstract class
 
@@ -24,8 +28,28 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(WelcomeViewModel::class)
-    abstract fun bindWelcomeViewModel(viewModel: WelcomeViewModel): ViewModel
+    @ViewModelKey(OnBoardingViewModel::class)
+    abstract fun bindWelcomeViewModel(viewModel: OnBoardingViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LanguageViewModel::class)
+    abstract fun bindLanguageViewModel(viewModel: LanguageViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LoginViewModel::class)
+    abstract fun bindLoginViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RegisterViewModel::class)
+    abstract fun bindRegisterViewModel(viewModel: RegisterViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CheckCodeViewModel::class)
+    abstract fun bindCheckCodeViewModel(viewModel: CheckCodeViewModel): ViewModel
 
     @Binds
     @IntoMap

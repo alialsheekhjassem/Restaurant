@@ -2,6 +2,7 @@
 <resources>
     <dimen name="spacing_card_item">3dp</dimen>
     <dimen name="spacing_medium">5dp</dimen>
+    <dimen name="spacing_default">10dp</dimen>
     <dimen name="size_header">24sp</dimen>
     <dimen name="size_title">16sp</dimen>
     <dimen name="size_big">14sp</dimen>

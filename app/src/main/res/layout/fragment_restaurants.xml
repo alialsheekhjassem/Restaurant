@@ -21,7 +21,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:clipToPadding="true"
-            android:paddingBottom="?attr/actionBarSize"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_restaurant"
             app:layout_constraintBottom_toBottomOf="parent"

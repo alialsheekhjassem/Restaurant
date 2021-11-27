@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <!-- The background color, preferably the same as your normal theme -->
     <item android:drawable="@color/white" />
-    <item
-        android:drawable="@drawable/ic_logo"
-        android:gravity="center" />
+
+    <item>
+        <bitmap
+            android:gravity="bottom|fill_horizontal"
+            android:src="@drawable/bg_flowers" />
+    </item>
+    <!-- Your product logo - 144dp color version of your app icon -->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/agreed" />
+    </item>
+
+
 </layer-list>

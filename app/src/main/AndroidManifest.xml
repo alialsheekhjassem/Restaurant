@@ -23,7 +23,9 @@
             android:name="magma.global.restaurant.presentation.home.HomeActivity"
             android:exported="true"
             android:label="@string/title_activity_home" />
-        <activity android:name=".presentation.welcome.WelcomeActivity"
+        <activity android:name=".presentation.onboarding.OnBoardingActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".presentation.registration.RegistrationActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".presentation.details.DetailsActivity" />
         <activity android:name=".presentation.edit_profile.EditProfileActivity" />

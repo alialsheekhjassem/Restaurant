@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.welcome.WelcomeViewModel" />
+            type="magma.global.restaurant.presentation.registration.check_code.CheckCodeViewModel" />
 
     </data>
 
@@ -17,34 +17,56 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
 
-            <ImageView
-                android:id="@+id/img_board"
+            <TextView
+                android:id="@+id/txt_header"
+                style="@style/MaterialTextStyle"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/size_image_welcome"
-                android:contentDescription="@string/app_name"
-                android:scaleType="fitXY"
-                android:src="@drawable/image3"
-                app:layout_constraintBottom_toTopOf="@+id/txt_title"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:layout_marginHorizontal="@dimen/spacing_large"
+                android:gravity="center"
+                android:padding="@dimen/spacing_default"
+                android:text="@string/app_name"
+                android:textSize="@dimen/size_header"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
                 android:id="@+id/txt_title"
                 style="@style/MaterialTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_large"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:layout_marginHorizontal="@dimen/spacing_large"
                 android:gravity="center"
-                android:padding="@dimen/spacing_large"
-                android:text="@string/enter_code_here"
+                android:text="@string/verification_code"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/size_toolbar_title"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/txt_title_code_send"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_board" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_header" />
+
+            <TextView
+                android:id="@+id/txt_title_code_send"
+                style="@style/MaterialTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_large"
+                android:gravity="center"
+                android:paddingVertical="@dimen/spacing_large"
+                android:textColor="@color/grey_40"
+                android:text="@string/a_verification_code_has_been_sent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
             <com.mukesh.OtpView
                 android:id="@+id/otp_number"
@@ -60,26 +82,50 @@
                 app:OtpItemCount="6"
                 app:OtpLineColor="@color/grey_20"
                 app:OtpViewType="line"
+                app:layout_constraintBottom_toTopOf="@+id/btn_confirm"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txt_title"
+                app:layout_constraintTop_toBottomOf="@id/txt_title_code_send"
                 tools:ignore="LabelFor"
                 tools:text="456455" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_start"
+                android:id="@+id/btn_confirm"
                 style="@style/MaterialButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_large"
-                android:padding="@dimen/spacing_large"
-                android:text="@string/check_code"
-                android:textSize="@dimen/size_toolbar_title"
-                android:textStyle="bold"
-                app:backgroundTint="@color/yellow"
+                android:text="@string/confirm"
+                android:textColor="@color/white"
+                android:padding="@dimen/spacing_default"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintBottom_toTopOf="@+id/txt_sub_title"
+                app:layout_constraintStart_toEndOf="@+id/btn_edit_phone_number"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/otp_number" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_edit_phone_number"
+                style="@style/MaterialOutlinedButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_large"
+                android:text="@string/edit_phone_number"
+                android:textColor="@color/colorPrimary"
+                android:padding="@dimen/spacing_default"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_confirm"
+                app:layout_constraintEnd_toStartOf="@+id/btn_confirm"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_confirm" />
+
 
             <TextView
                 android:id="@+id/txt_sub_title"
@@ -89,12 +135,12 @@
                 android:layout_marginStart="@dimen/spacing_large"
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:padding="@dimen/spacing_large"
-                android:text="@string/don_t_receive_code_click_here"
+                android:text="@string/didn_t_receive_the_code_resend_45s"
                 android:textColor="@color/grey_60"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_start" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_confirm" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
