@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_details"
-        android:name="magma.global.restaurant.presentation.details.RestaurantDetailsFragment"
+        android:name="magma.abikarshak.restaurant.presentation.details.RestaurantDetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_restaurant_details">
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/fragment_cart"
-        android:name="magma.global.restaurant.presentation.details.cart.CartFragment"
+        android:name="magma.abikarshak.restaurant.presentation.details.cart.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart">
         <argument android:name="fragment_cart" />
@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/fragment_address"
-        android:name="magma.global.restaurant.presentation.details.address.AddressFragment"
+        android:name="magma.abikarshak.restaurant.presentation.details.address.AddressFragment"
         android:label="fragment_address"
         tools:layout="@layout/fragment_address">
         <argument android:name="fragment_address" />

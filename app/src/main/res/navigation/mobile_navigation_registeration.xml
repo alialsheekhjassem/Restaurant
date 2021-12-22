@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/navigation_language"
-        android:name="magma.global.restaurant.presentation.registration.language.LanguageFragment"
+        android:name="magma.abikarshak.restaurant.presentation.registration.language.LanguageFragment"
         android:label="navigation_language"
         tools:layout="@layout/fragment_language">
         <argument android:name="navigation_language" />
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_register_login"
-        android:name="magma.global.restaurant.presentation.registration.register_login.RegisterLoginFragment"
+        android:name="magma.abikarshak.restaurant.presentation.registration.register_login.RegisterLoginFragment"
         android:label="register_login"
         tools:layout="@layout/fragment_register_login" >
 
@@ -48,7 +48,7 @@
 
     <fragment
         android:id="@+id/navigation_login"
-        android:name="magma.global.restaurant.presentation.registration.login.LoginFragment"
+        android:name="magma.abikarshak.restaurant.presentation.registration.login.LoginFragment"
         android:label="@string/login"
         tools:layout="@layout/fragment_login">
 
@@ -66,7 +66,7 @@
 
     <fragment
         android:id="@+id/navigation_register"
-        android:name="magma.global.restaurant.presentation.registration.register.RegisterFragment"
+        android:name="magma.abikarshak.restaurant.presentation.registration.register.RegisterFragment"
         android:label="navigation_register"
         tools:layout="@layout/fragment_register">
 
@@ -91,7 +91,7 @@
 
     <fragment
         android:id="@+id/navigation_check_code"
-        android:name="magma.global.restaurant.presentation.registration.check_code.CheckCodeFragment"
+        android:name="magma.abikarshak.restaurant.presentation.registration.check_code.CheckCodeFragment"
         android:label="navigation_check_code"
         tools:layout="@layout/fragment_check_code">
 

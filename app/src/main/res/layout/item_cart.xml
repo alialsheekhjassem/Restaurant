@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="magma.global.restaurant.model.Restaurant" />
+            type="magma.abikarshak.restaurant.model.Restaurant" />
 
         <import type="android.view.View" />
     </data>

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.details.cart.CartViewModel" />
+            type="magma.abikarshak.restaurant.presentation.details.cart.CartViewModel" />
 
     </data>
 
@@ -270,7 +270,7 @@
                     android:background="@color/grey_10"
                     app:layout_constraintTop_toBottomOf="@id/txt_name_and_phone" />
 
-                <magma.global.restaurant.utils.MonsterButtonToggleGroup
+                <magma.abikarshak.restaurant.utils.MonsterButtonToggleGroup
                     android:id="@+id/group_toggle_buttons_categories"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -316,7 +316,7 @@
                         android:textColor="@color/color_text_toggle_selector"
                         app:backgroundTint="@color/color_toggle_selector" />
 
-                </magma.global.restaurant.utils.MonsterButtonToggleGroup>
+                </magma.abikarshak.restaurant.utils.MonsterButtonToggleGroup>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@
     <dimen name="size_small">12sp</dimen>
     <dimen name="size_body">11sp</dimen>
     <dimen name="size_tiny">9sp</dimen>
+    <dimen name="size_so_tiny">7sp</dimen>
     <dimen name="size_circle">58dp</dimen>
     <dimen name="size_toolbar_title">20sp</dimen>
     <dimen name="size_keypad_title">20sp</dimen>

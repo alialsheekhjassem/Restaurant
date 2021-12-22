@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.registration.check_code.CheckCodeViewModel" />
+            type="magma.abikarshak.restaurant.presentation.registration.check_code.CheckCodeViewModel" />
 
     </data>
 

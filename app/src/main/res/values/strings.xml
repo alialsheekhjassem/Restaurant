@@ -15,6 +15,7 @@
     <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
     <!--<string name="interstitial_ad_unit_id">ca-app-pub-2559564046715323~6653115980</string>-->
     <string name="unknown_error">unknown error</string>
+    <string name="error">Error</string>
     <string name="no_internet">no internet</string>
 
     <string name="open">Open</string>
@@ -137,7 +138,11 @@
     <string name="confirm">Confirm</string>
     <string name="copy_link">Copy link</string>
     <string name="field_can_not_be_empty">Field can not be empty</string>
-    <string name="please_enter_avalid_email">please enter a valid email</string>
+    <string name="name_can_not_be_empty">Name can not be empty</string>
+    <string name="please_enter_avalid_phone">Please enter a valid phone</string>
+    <string name="please_enter_avalid_email">Please enter a valid email</string>
+    <string name="please_enter_avalid_password">Password must at least 8 characters</string>
+    <string name="please_enter_avalid_confirm_password">Confirm password must be same password</string>
     <string name="next">Next</string>
     <string name="top_restaurant">Top Restaurant</string>
     <string name="powered_by">Powered by</string>
@@ -146,7 +151,7 @@
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="forget_password">Forget Password?</string>
-    <string name="do_not_have_account">Don\'t have account? Sign Up</string>
+    <string name="do_not_have_account">Don\'t have account?</string>
     <string name="sign_in_with_facebook">Sign in with facebook</string>
     <string name="sign_in_with_google">Sign in with google</string>
     <string name="or">or</string>
@@ -156,9 +161,31 @@
     <string name="email_hint">Email : (Optional)</string>
     <string name="accept_terms_and_conditions">By clicking on the verfiy and sign up you are accepting all the Terms and Conditions</string>
     <string name="verify_and_sign_up">Verify and Sign Up</string>
-    <string name="already_have_and_account_sign_in">Already have and account? Sign In</string>
+    <string name="already_have_and_account_sign_in">Already have and account?</string>
     <string name="verification_code">Verification Code</string>
     <string name="a_verification_code_has_been_sent">A verification code has been sent to your mobile number.</string>
     <string name="edit_phone_number">Edit Phone Number</string>
     <string name="didn_t_receive_the_code_resend_45s">Didn\'t receive the code? Resend (45s)</string>
+    <string name="select_location">Location</string>
+    <string name="search_for_restaurants">Search for restaurants</string>
+    <string name="recommended_restaurants">Recommended Restaurants</string>
+    <string name="recommended_food">Recommended Food</string>
+    <string name="new_items">New Items</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="loading">Loading…</string>
+    <string name="password_format_not_correct">Password format is not correct</string>
+    <string name="phone_format_not_correct">Phone format is not correct</string>
+    <string name="pending">Pending</string>
+    <string name="completed">Completed</string>
+    <string name="waiting">Waiting</string>
+    <string name="approved">Approved</string>
+    <string name="processing">Processing</string>
+    <string name="ready">Ready</string>
+    <string name="your_order_is_ready">Your order is ready</string>
+    <string name="channel_name" translatable="false">Abi_Kirshak</string>
+    <string name="channel_description" translatable="false">Abi_Kirshak_Desc</string>
+    <string name="forbidden">Forbidden 403</string>
+    <string name="wrong_number">Wrong Code</string>
+    <string name="code_sent">Code Sent</string>
+    <string name="wrong_code">Wrong Code</string>
 </resources>

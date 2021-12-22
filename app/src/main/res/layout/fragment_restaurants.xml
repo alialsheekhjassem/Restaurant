@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.home.ui.home.HomeViewModel" />
+            type="magma.abikarshak.restaurant.presentation.home.ui.home.HomeViewModel" />
 
     </data>
 

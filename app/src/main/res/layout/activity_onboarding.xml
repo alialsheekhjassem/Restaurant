@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.onboarding.OnBoardingViewModel" />
+            type="magma.abikarshak.restaurant.presentation.onboarding.OnBoardingViewModel" />
 
     </data>
 
@@ -26,12 +26,12 @@
             app:layout_constraintBottom_toTopOf="@+id/pageIndicator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.tabs.TabLayout
+        <!--<com.google.android.material.tabs.TabLayout
             android:id="@+id/pageIndicator"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:layout_margin="@dimen/vertical_10dp"
             android:background="@drawable/bg_light_gradient_background"
             app:layout_constraintBottom_toTopOf="@+id/txt_title_powered"
@@ -40,21 +40,43 @@
             app:layout_constraintTop_toBottomOf="@+id/viewPager"
             app:tabBackground="@drawable/onboarding_viewpager_selector_orange"
             app:tabGravity="center"
-            app:tabIndicatorHeight="0dp" />
+            app:tabMinWidth="50dp"
+            android:clipToPadding="false"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            app:tabIndicatorHeight="0dp" />-->
+
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/pageIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_light_gradient_background"
+            app:dotsColor="@color/grey_20"
+            app:dotsCornerRadius="5dp"
+            app:dotsSize="@dimen/spacing_default"
+            app:dotsSpacing="4dp"
+            app:dotsWidthFactor="3"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            app:layout_constraintBottom_toTopOf="@+id/txt_title_powered"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewPager"
+            app:progressMode="true"
+            app:selectedDotColor="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/txt_title_powered"
-            style="@style/MaterialTextTitleStyle"
+            style="@style/MaterialTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_large"
             android:gravity="center"
             android:padding="@dimen/spacing_medium"
-            android:textColor="@color/gray"
             android:text="@string/powered_by"
+            android:textColor="@color/grey_40"
+            app:layout_constraintBottom_toTopOf="@+id/txt_title_company"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/txt_title_company"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/txt_title_company"
@@ -63,11 +85,9 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_large"
             android:layout_marginBottom="@dimen/spacing_profile_top"
+            android:gravity="center"
             android:text="@string/magma"
             android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            android:textSize="@dimen/size_toolbar_title"
-            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

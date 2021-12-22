@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="magma.global.restaurant.presentation.home.ui.home.HomeFragment"
+        android:name="magma.abikarshak.restaurant.presentation.home.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_chats"
-        android:name="magma.global.restaurant.presentation.home.ui.chats.ChatsFragment"
+        android:name="magma.abikarshak.restaurant.presentation.home.ui.chats.ChatsFragment"
         android:label="@string/title_chats"
         tools:layout="@layout/fragment_chats" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="magma.global.restaurant.presentation.home.ui.notifications.NotificationsFragment"
+        android:name="magma.abikarshak.restaurant.presentation.home.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="magma.global.restaurant.presentation.home.ui.profile.ProfileFragment"
+        android:name="magma.abikarshak.restaurant.presentation.home.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_my_order"
-        android:name="magma.global.restaurant.presentation.home.ui.my_order.MyOrderFragment"
+        android:name="magma.abikarshak.restaurant.presentation.home.ui.my_order.MyOrderFragment"
         android:label="@string/title_my_order"
         tools:layout="@layout/fragment_my_order" />
 </navigation>

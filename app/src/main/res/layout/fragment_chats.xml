@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.home.ui.chats.ChatsViewModel" />
+            type="magma.abikarshak.restaurant.presentation.home.ui.chats.ChatsViewModel" />
 
     </data>
 

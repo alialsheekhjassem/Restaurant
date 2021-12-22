@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.home.ui.my_order.MyOrderViewModel" />
+            type="magma.abikarshak.restaurant.presentation.home.ui.my_order.MyOrderViewModel" />
 
     </data>
 
@@ -16,19 +16,166 @@
         android:layout_height="match_parent"
         tools:context=".presentation.home.ui.my_order.MyOrderFragment">
 
-        <TextView
-            android:id="@+id/text_home"
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/lyt_parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:text="@string/title_my_order"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txt_header"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_profile_top"
+                    android:text="@string/title_my_order"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/grp_toggle_btn_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:layout_marginHorizontal="@dimen/spacing_default"
+                    android:paddingHorizontal="@dimen/spacing_medium"
+                    app:checkedButton="@+id/btn_pending"
+                    app:selectionRequired="true"
+                    app:singleSelection="true"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_header">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_completed"
+                        style="@style/MaterialToggleButtonViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/spacing_default"
+                        android:text="@string/completed"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/size_small"
+                        android:textColor="@color/color_text_toggle_selector"
+                        app:backgroundTint="@color/color_toggle_selector"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_pending"
+                        style="@style/MaterialToggleButtonViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/spacing_default"
+                        android:text="@string/pending"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/size_small"
+                        android:textColor="@color/color_text_toggle_selector"
+                        app:backgroundTint="@color/color_toggle_selector" />
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/grp_toggle_btn_status_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_default"
+                    android:layout_marginHorizontal="@dimen/spacing_default"
+                    android:paddingHorizontal="@dimen/spacing_medium"
+                    app:checkedButton="@+id/btn_ready"
+                    app:selectionRequired="true"
+                    app:singleSelection="true"
+                    app:layout_constraintTop_toBottomOf="@+id/grp_toggle_btn_status">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_waiting"
+                        style="@style/MaterialToggleButtonViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/spacing_medium"
+                        android:text="@string/waiting"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/size_body"
+                        android:textColor="@color/color_text_toggle_selector"
+                        app:backgroundTint="@color/color_toggle_selector" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_approved"
+                        style="@style/MaterialToggleButtonViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/spacing_medium"
+                        android:text="@string/approved"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/size_body"
+                        android:textColor="@color/color_text_toggle_selector"
+                        app:backgroundTint="@color/color_toggle_selector"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_processing"
+                        style="@style/MaterialToggleButtonViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/spacing_medium"
+                        android:text="@string/processing"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/size_body"
+                        android:textColor="@color/color_text_toggle_selector"
+                        app:backgroundTint="@color/color_toggle_selector" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_ready"
+                        style="@style/MaterialToggleButtonViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="@dimen/spacing_medium"
+                        android:text="@string/ready"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/size_body"
+                        android:textColor="@color/color_text_toggle_selector"
+                        app:backgroundTint="@color/color_toggle_selector"/>
+
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <TextView
+                    android:id="@+id/txt_order_status"
+                    style="@style/MaterialTextStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_profile_top"
+                    android:text="@string/your_order_is_ready"
+                    android:textColor="@color/grey_40"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/grp_toggle_btn_status_type" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_orders"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_order_status"
+                    tools:listitem="@layout/item_order" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

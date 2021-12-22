@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="magma.global.restaurant.presentation.home.ui.profile.ProfileViewModel" />
+            type="magma.abikarshak.restaurant.presentation.home.ui.profile.ProfileViewModel" />
 
         <variable
             name="StringRuleUtil"
-            type="magma.global.restaurant.utils.StringRuleUtil" />
+            type="magma.abikarshak.restaurant.utils.StringRuleUtil" />
 
     </data>
 

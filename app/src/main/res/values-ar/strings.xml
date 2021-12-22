@@ -16,6 +16,7 @@
     <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
     <!--<string name="interstitial_ad_unit_id">ca-app-pub-2559564046715323~6653115980</string>-->
     <string name="unknown_error">unknown error</string>
+    <string name="error">خطأ</string>
     <string name="no_internet">no internet</string>
 
     <string name="open">Open</string>
@@ -139,7 +140,11 @@
     <string name="confirm">تأكيد</string>
     <string name="copy_link">نسخ الرابط</string>
     <string name="field_can_not_be_empty">الحقل لا يمكن أن يكون فارغاً</string>
+    <string name="name_can_not_be_empty">الاسم لا يمكن أن يكون فارغا</string>
+    <string name="please_enter_avalid_phone">الرجاء إدخال رقم موبايل صالح</string>
     <string name="please_enter_avalid_email">الرجاء إدخال بريد إلكتروني صالح</string>
+    <string name="please_enter_avalid_password">كلمة السر يجب أن تكون على الأقل 8 رموز</string>
+    <string name="please_enter_avalid_confirm_password">تأكيد كلمة السر يجب أن تكون مطابقة لكلمة السر</string>
     <string name="next">التالي</string>
     <string name="top_restaurant">افضل المطاعم</string>
     <string name="powered_by">مشغل بواسطة</string>
@@ -148,7 +153,7 @@
     <string name="password">كلمة السر</string>
     <string name="sign_in">تسجيل دخول</string>
     <string name="forget_password">هل نسيت كلمة السر</string>
-    <string name="do_not_have_account">ليس لديك حساب؟ التسجيل</string>
+    <string name="do_not_have_account">ليس لديك حساب؟</string>
     <string name="sign_in_with_facebook">تسجيل دخول فيسبوك</string>
     <string name="sign_in_with_google">تسجيل دخول جوجل</string>
     <string name="or">أو</string>
@@ -158,9 +163,29 @@
     <string name="email_hint">البريد الالكتروني : (اختياري)</string>
     <string name="accept_terms_and_conditions">بالنقر على التحقق والتسجيل فإنك تقبل جميع الشروط والأحكام</string>
     <string name="verify_and_sign_up">تحقق واشترك</string>
-    <string name="already_have_and_account_sign_in">لديك بالفعل حساب؟ تسجيل الدخول</string>
+    <string name="already_have_and_account_sign_in">لديك بالفعل حساب؟</string>
     <string name="verification_code">رمز التحقق</string>
     <string name="a_verification_code_has_been_sent">تم إرسال رمز التحقق إلى رقم هاتفك المحمول.</string>
     <string name="edit_phone_number">تعديل رقم الموبايل</string>
     <string name="didn_t_receive_the_code_resend_45s">ألم يصلك الرمز؟ إعادة إرسال (45 ثانية)</string>
+    <string name="select_location">اختر موقع</string>
+    <string name="search_for_restaurants">البحث عن مطاعم</string>
+    <string name="recommended_restaurants">المطاعم المقترحة</string>
+    <string name="recommended_food">الوجبات المقترحة</string>
+    <string name="new_items">عناصر جديدة</string>
+    <string name="add_to_cart">إضافة إلى السلة</string>
+    <string name="loading">جاري التحميل…</string>
+    <string name="password_format_not_correct">صيغة كلمة المرور ليست صحيحة</string>
+    <string name="phone_format_not_correct">صيغة رقم الهاتف ليست صحيحة</string>
+    <string name="pending">قيد المراجعة</string>
+    <string name="completed">مكتملة</string>
+    <string name="waiting">قيد الانتظار</string>
+    <string name="approved">موافقة</string>
+    <string name="processing">قيد المعالجة</string>
+    <string name="ready">جاهزة</string>
+    <string name="your_order_is_ready">طلبيتك جاهزة</string>
+    <string name="forbidden">محظور 403</string>
+    <string name="wrong_number">Wrong Code</string>
+    <string name="code_sent">Code Sent</string>
+    <string name="wrong_code">Wrong Code</string>
 </resources>

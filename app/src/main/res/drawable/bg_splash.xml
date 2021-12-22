@@ -10,11 +10,9 @@
             android:src="@drawable/bg_flowers" />
     </item>
     <!-- Your product logo - 144dp color version of your app icon -->
-    <item>
+    <item android:top="200dp" android:gravity="top|center_horizontal">
         <bitmap
-            android:gravity="center"
             android:src="@drawable/agreed" />
     </item>
-
 
 </layer-list>
