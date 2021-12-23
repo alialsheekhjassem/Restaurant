@@ -1,6 +1,7 @@
 package magma.abikarshak.restaurant.presentation.registration.register
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import dagger.android.support.AndroidSupportInjection
 import magma.abikarshak.restaurant.R
 import magma.abikarshak.restaurant.databinding.FragmentRegisterBinding
@@ -16,6 +23,8 @@ import magma.abikarshak.restaurant.utils.*
 import javax.inject.Inject
 
 class RegisterFragment : Fragment() {
+    private val RC_SIGN_IN: Int = 100
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var title: String
     private lateinit var description: String
     private var imageResource = 0
@@ -55,6 +64,56 @@ class RegisterFragment : Fragment() {
     private fun setUp() {
         binding.countryPicker.registerCarrierNumberEditText(binding.txtInputPhone)
         binding.stringRuleUtil = StringRuleUtil
+        // Configure sign-in to request the user's ID, email address, and basic
+        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build()
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
+
+        // Check for existing Google Sign In account, if the user is already signed in
+        // the GoogleSignInAccount will be non-null.
+        val account = GoogleSignIn.getLastSignedInAccount(binding.root.context)
+        updateUI(account)
+    }
+
+    private fun signIn() {
+        val signInIntent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    private fun updateUI(account: GoogleSignInAccount?) {
+        Log.d(TAG, "updateUI: $account")
+        if (account != null) {
+            viewModel.doServerLogin(account)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleSignInResult(task)
+        }
+    }
+
+    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account = completedTask.getResult(ApiException::class.java)
+
+            // Signed in successfully, show authenticated UI.
+            updateUI(account)
+        } catch (e: ApiException) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Log.w(TAG, "signInResult:failed code=" + e.statusCode)
+            updateUI(null)
+        }
     }
 
     private fun setUpObservers() {
@@ -68,14 +127,10 @@ class RegisterFragment : Fragment() {
                                     .navigate(R.id.action_register_to_login)
                             }
                             RegisterActions.GOOGLE_CLICKED -> {
-                                //signIn()
-                                Navigation.findNavController(binding.root)
-                                    .navigate(R.id.action_register_to_check_code)
+                                signIn()
                             }
                             RegisterActions.FACEBOOK_CLICKED -> {
-                                //forgetPassword()
-                                Navigation.findNavController(binding.root)
-                                    .navigate(R.id.action_register_to_check_code)
+                                signIn()
                             }
                         }
                     }

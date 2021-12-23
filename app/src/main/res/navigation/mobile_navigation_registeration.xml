@@ -86,7 +86,9 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/navigation_register"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -95,7 +97,7 @@
         android:label="navigation_check_code"
         tools:layout="@layout/fragment_check_code">
 
-        <!--<action
+        <action
             android:id="@+id/action_check_code_to_register"
             app:destination="@id/navigation_register"
             app:enterAnim="@anim/nav_default_enter_anim"
@@ -103,6 +105,16 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/navigation_check_code"
-            app:popUpToInclusive="true" />-->
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_check_code_to_login"
+            app:destination="@id/navigation_login"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/navigation_check_code"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

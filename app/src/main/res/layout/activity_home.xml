@@ -111,14 +111,6 @@
             app:navGraph="@navigation/mobile_navigation"
             tools:ignore="FragmentTagUsage" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="68dp"
-            android:background="@drawable/bg_rounded_primary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
         <magma.abikarshak.restaurant.utils.meow_bottom_navigation.MeowBottomNavigation
             android:id="@+id/nav_view"
             android:layout_width="0dp"

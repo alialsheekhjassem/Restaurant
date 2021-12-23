@@ -3,6 +3,7 @@ package magma.abikarshak.restaurant.data.remote.services
 import magma.abikarshak.restaurant.data.remote.controller.ResponseWrapper
 import magma.abikarshak.restaurant.data.remote.requests.LoginRequest
 import magma.abikarshak.restaurant.data.remote.requests.RegisterRequest
+import magma.abikarshak.restaurant.data.remote.requests.ResetPasswordRequest
 import magma.abikarshak.restaurant.data.remote.responses.LoginResponse
 import magma.abikarshak.restaurant.data.remote.responses.NearbySearchResponse
 import magma.abikarshak.restaurant.utils.Urls
@@ -37,6 +38,11 @@ interface IFoodService {
     @POST(Urls.END_POINT_REGISTER)
     suspend fun doServerRegister(
         @Body registerRequest: RegisterRequest?
+    ): Response<ResponseWrapper<String>>
+
+    @POST(Urls.END_POINT_RESET_PASSWORD)
+    suspend fun doServerResetPassword(
+        @Body request: ResetPasswordRequest?
     ): Response<ResponseWrapper<String>>
 
 }

@@ -1,11 +1,18 @@
 package magma.abikarshak.restaurant.presentation.registration.register
 
 import android.text.Editable
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.hbb20.CountryCodePicker
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import magma.abikarshak.restaurant.data.remote.controller.Resource
+import magma.abikarshak.restaurant.data.remote.controller.ResponseWrapper
+import magma.abikarshak.restaurant.data.remote.requests.LoginRequest
 import magma.abikarshak.restaurant.data.remote.requests.RegisterRequest
+import magma.abikarshak.restaurant.data.remote.responses.LoginResponse
 import magma.abikarshak.restaurant.data.repository.DataRepository
 import magma.abikarshak.restaurant.utils.Const
 import magma.abikarshak.restaurant.utils.Event
@@ -22,6 +29,7 @@ class RegisterViewModel @Inject constructor(
     val registerRequest = MutableLiveData<RegisterRequest>()
     val actions = MutableLiveData<Event<RegisterActions>>()
     val registerValidation = MutableLiveData<Int>()
+    val loginResponse = MutableLiveData<Event<Resource<ResponseWrapper<LoginResponse>>>>()
 
     fun doServerRegister(
         edtName: Editable,
@@ -33,28 +41,6 @@ class RegisterViewModel @Inject constructor(
     ) {
 
         val fullPhoneNumber: String?
-        /*else {
-            fullPhoneNumber = countryCodePicker.fullNumberWithPlus
-            val request = RegisterRequest()
-            request.name = edtName.toString()
-            request.phone = fullPhoneNumber
-            request.password = edtPassword.toString()
-            request.locale = dataRepository.getLang()
-            registerRequest.value = request
-            *//*launch {
-                Log.d("TAG", "doServerLogin: $fullPhoneNumber")
-                Log.d("TAG", "doServerLogin: $edtPassword")
-                //registerResponse.value = Event(Resource.Loading())
-                val request = RegisterRequest()
-                request.name = edtName.toString()
-                request.phone = fullPhoneNumber
-                request.password = edtPassword.toString()
-                request.locale = dataRepository.getLang()
-                *//**//*val response: Resource<ResponseWrapper<String>> =
-                    dataRepository.doServerRegister(request)
-                registerResponse.value = Event(response)*//**//*
-            }*//*
-        }*/
 
         when {
             StringRuleUtil.NOT_EMPTY_RULE.validate(edtName) -> {
@@ -96,6 +82,23 @@ class RegisterViewModel @Inject constructor(
             }
         }
 
+    }
+
+    fun doServerLogin(googleSignInAccount: GoogleSignInAccount) {
+        launch {
+            Log.d("TAG", "doServerLogin: ${googleSignInAccount.email}")
+            Log.d("TAG", "doServerLogin: ${googleSignInAccount.idToken}")
+            loginResponse.value = Event(Resource.Loading())
+            val request = LoginRequest()
+            /*
+            * This Request not processed from API
+            * */
+            request.phone = googleSignInAccount.idToken
+            request.password = ""
+            val response: Resource<ResponseWrapper<LoginResponse>> =
+                dataRepository.doServerLogin(request)
+            loginResponse.value = Event(response)
+        }
     }
 
     fun onSignIn() {

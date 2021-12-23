@@ -7,6 +7,7 @@ package magma.abikarshak.restaurant.utils
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -16,9 +17,9 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.android.material.textfield.TextInputLayout
 import magma.abikarshak.restaurant.R
 import magma.abikarshak.restaurant.utils.StringRuleUtil.StringRule
-import com.google.android.material.textfield.TextInputLayout
 
 object BindingUtils {
     private const val TAG = "BindingUtils"
@@ -61,7 +62,7 @@ object BindingUtils {
     @BindingAdapter("confirm_password", "errorMsg")
     fun setErrorEnable(
         textInputLayoutConfirmPassword: TextInputLayout,
-        textInputLayoutPassword: TextInputLayout,
+        edtPassword: Editable,
         errorMsg: String?
     ) {
         if (textInputLayoutConfirmPassword.editText != null) textInputLayoutConfirmPassword.editText!!.addTextChangedListener(
@@ -76,14 +77,14 @@ object BindingUtils {
 
                 override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
                 override fun afterTextChanged(editable: Editable) {
-                    val text = textInputLayoutConfirmPassword.editText!!.text.toString()
+                    val text = editable.toString()
                     Log.d(TAG, "CCCP afterTextChanged: $text")
                     Log.d(TAG, "CCCP afterTextChanged: $errorMsg")
                     val notEmpty =
                         textInputLayoutConfirmPassword.context.getString(R.string.field_can_not_be_empty)
                     when {
                         text.isEmpty() -> textInputLayoutConfirmPassword.error = notEmpty
-                        text != textInputLayoutPassword.editText!!.text.toString() ->
+                        text != edtPassword.toString() ->
                             textInputLayoutConfirmPassword.error = errorMsg
                         else -> textInputLayoutConfirmPassword.error = null
                     }
@@ -100,6 +101,15 @@ object BindingUtils {
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .placeholder(R.drawable.ic_logo)
             .into(imageView)
+    }
+
+    @JvmStatic
+    @BindingAdapter("image_drawable")
+    fun setImageRes(imageView: ImageView, imageDrawable: Drawable) {
+        Log.d(TAG, "setImageRes: $imageDrawable")
+        Glide.with(imageView)
+            .load(imageDrawable)
+            .fitCenter().into(imageView)
     }
 
     fun Context.hideKeyboard(view: View) {

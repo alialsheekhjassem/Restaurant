@@ -15,6 +15,7 @@ class Const {
         const val DATE_FORMAT = "yyyy-MM-dd_HHmmss"
 
         const val TAG_FoodMenuFragment = "FoodMenuFragment"
+        const val TAG_ForgetPasswordFragment = "ForgetPasswordFragment"
         const val TAG_DatePickerParentFragment = "DatePickerParentFragment"
         const val TAG_TimePickerParentFragment = "TimePickerParentFragment"
 

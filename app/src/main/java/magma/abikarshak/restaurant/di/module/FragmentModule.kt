@@ -14,6 +14,7 @@ import magma.abikarshak.restaurant.presentation.home.ui.profile.ProfileFragment
 import magma.abikarshak.restaurant.presentation.home.ui.notifications.NotificationsFragment
 import magma.abikarshak.restaurant.presentation.onboarding.OnBoardingFragment
 import magma.abikarshak.restaurant.presentation.registration.check_code.CheckCodeFragment
+import magma.abikarshak.restaurant.presentation.registration.forget_password.ForgetPasswordFragment
 import magma.abikarshak.restaurant.presentation.registration.language.LanguageFragment
 import magma.abikarshak.restaurant.presentation.registration.login.LoginFragment
 import magma.abikarshak.restaurant.presentation.registration.register.RegisterFragment
@@ -42,6 +43,9 @@ internal abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract fun contributeCheckCodeFragment(): CheckCodeFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeForgetPasswordFragment(): ForgetPasswordFragment
 
 
     /*Home*/

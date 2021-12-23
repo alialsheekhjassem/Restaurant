@@ -15,6 +15,7 @@ import magma.abikarshak.restaurant.presentation.home.ui.profile.ProfileViewModel
 import magma.abikarshak.restaurant.presentation.home.ui.notifications.NotificationsViewModel
 import magma.abikarshak.restaurant.presentation.onboarding.OnBoardingViewModel
 import magma.abikarshak.restaurant.presentation.registration.check_code.CheckCodeViewModel
+import magma.abikarshak.restaurant.presentation.registration.forget_password.ForgetPasswordViewModel
 import magma.abikarshak.restaurant.presentation.registration.language.LanguageViewModel
 import magma.abikarshak.restaurant.presentation.registration.login.LoginViewModel
 import magma.abikarshak.restaurant.presentation.registration.register.RegisterViewModel
@@ -56,6 +57,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CheckCodeViewModel::class)
     abstract fun bindCheckCodeViewModel(viewModel: CheckCodeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ForgetPasswordViewModel::class)
+    abstract fun bindForgetPasswordViewModel(viewModel: ForgetPasswordViewModel): ViewModel
 
     @Binds
     @IntoMap

@@ -27,10 +27,7 @@ import dagger.android.AndroidInjection
 import magma.abikarshak.restaurant.R
 import magma.abikarshak.restaurant.databinding.ActivityEditProfileBinding
 import magma.abikarshak.restaurant.presentation.home.ui.profile.ProfileViewModel
-import magma.abikarshak.restaurant.utils.Const
-import magma.abikarshak.restaurant.utils.DatePickerParentFragment
-import magma.abikarshak.restaurant.utils.StringRuleUtil
-import magma.abikarshak.restaurant.utils.ViewModelFactory
+import magma.abikarshak.restaurant.utils.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -73,6 +70,8 @@ class EditProfileActivity : AppCompatActivity(), View.OnClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        //lang
+        LocalHelper.onCreate(this)
 
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         binding.viewModel = viewModel

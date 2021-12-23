@@ -21,7 +21,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/spacing_profile_top">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/txt_header"
@@ -259,54 +260,36 @@
                 app:layout_constraintStart_toEndOf="@+id/txt_title_or"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_facebook"
-                style="@style/MaterialButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_large"
-                android:layout_marginStart="@dimen/spacing_default"
-                android:layout_marginEnd="@dimen/spacing_large"
-                android:backgroundTint="@color/quantum_vanillablueA700"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:padding="@dimen/spacing_default"
-                android:text="@string/sign_in_with_facebook"
-                android:textColor="@color/white"
-                android:textSize="@dimen/size_body"
-                app:icon="@drawable/ic_facebook"
-                app:iconTint="@color/white"
-                android:onClick="@{()->viewModel.doServerGoogleSignIn()}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_google"
-                app:layout_constraintTop_toBottomOf="@+id/txt_title_or" />
-
-            <com.google.android.material.button.MaterialButton
+            <include
                 android:id="@+id/btn_google"
-                style="@style/MaterialButtonStyle"
+                layout="@layout/inclue_social_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_large"
-                android:backgroundTint="@color/quantum_vanillablueA700"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:padding="@dimen/spacing_default"
-                android:text="@string/sign_in_with_google"
-                android:textColor="@color/white"
-                android:textSize="@dimen/size_body"
-                app:icon="@drawable/ic_google"
-                app:iconTint="@color/white"
+                android:layout_marginHorizontal="@dimen/spacing_default"
                 android:onClick="@{()->viewModel.doServerGoogleSignIn()}"
+                app:title="@{@string/sign_in_with_google}"
+                app:drawable="@{@drawable/ic_google}"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_facebook"
                 app:layout_constraintEnd_toStartOf="@+id/btn_facebook"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/btn_facebook" />
+
+            <include
+                android:id="@+id/btn_facebook"
+                layout="@layout/inclue_social_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.doServerFacebookSignIn()}"
+                app:title="@{@string/sign_in_with_facebook}"
+                app:drawable="@{@drawable/ic_facebook}"
+                android:layout_marginEnd="@dimen/spacing_default"
+                android:layout_marginTop="@dimen/spacing_default"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_google"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title_or" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

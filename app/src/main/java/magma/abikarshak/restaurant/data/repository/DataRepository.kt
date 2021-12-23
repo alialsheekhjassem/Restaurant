@@ -5,6 +5,7 @@ import magma.abikarshak.restaurant.data.remote.controller.Resource
 import magma.abikarshak.restaurant.data.remote.controller.ResponseWrapper
 import magma.abikarshak.restaurant.data.remote.requests.LoginRequest
 import magma.abikarshak.restaurant.data.remote.requests.RegisterRequest
+import magma.abikarshak.restaurant.data.remote.requests.ResetPasswordRequest
 import magma.abikarshak.restaurant.data.remote.responses.LoginResponse
 import magma.abikarshak.restaurant.model.Restaurant
 import javax.inject.Inject
@@ -23,6 +24,10 @@ constructor(
 
     override suspend fun doServerRegister(registerRequest: RegisterRequest): Resource<ResponseWrapper<String>> {
         return remoteRepository.doServerRegister(registerRequest)
+    }
+
+    override suspend fun doServerResetPassword(request: ResetPasswordRequest): Resource<ResponseWrapper<String>> {
+        return remoteRepository.doServerResetPassword(request)
     }
 
     //Local DB

@@ -86,11 +86,14 @@ class LoginViewModel @Inject constructor(
                 dataRepository.doServerLogin(request)
             loginResponse.value = Event(response)
         }
-
     }
 
     fun doServerGoogleSignIn() {
         actions.value = Event(LoginActions.GOOGLE_CLICKED)
+    }
+
+    fun doServerFacebookSignIn() {
+        actions.value = Event(LoginActions.FACEBOOK_CLICKED)
     }
 
     fun onSignUp() {

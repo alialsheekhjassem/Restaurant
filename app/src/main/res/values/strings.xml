@@ -165,7 +165,8 @@
     <string name="verification_code">Verification Code</string>
     <string name="a_verification_code_has_been_sent">A verification code has been sent to your mobile number.</string>
     <string name="edit_phone_number">Edit Phone Number</string>
-    <string name="didn_t_receive_the_code_resend_45s">Didn\'t receive the code? Resend (45s)</string>
+    <string name="didn_t_receive_the_code_resend_45s">Didn\'t receive the code? </string>
+    <string name="resend_45s">Resend </string>
     <string name="select_location">Location</string>
     <string name="search_for_restaurants">Search for restaurants</string>
     <string name="recommended_restaurants">Recommended Restaurants</string>
@@ -188,4 +189,11 @@
     <string name="wrong_number">Wrong Code</string>
     <string name="code_sent">Code Sent</string>
     <string name="wrong_code">Wrong Code</string>
+    <string name="success">Success</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="please_enter_the_number_you_signed_up_with">Please enter the number you signed up with</string>
+    <string name="a_verfication_code_has_been_sent_to_your_mobile_number">A verfication code has been sent to your mobile number.</string>
+    <string name="verify">Verify</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="save_new_password">Save New Password</string>
 </resources>

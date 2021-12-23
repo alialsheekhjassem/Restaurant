@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import dagger.android.AndroidInjection
 import magma.abikarshak.restaurant.R
 import magma.abikarshak.restaurant.databinding.ActivityDetailsBinding
+import magma.abikarshak.restaurant.utils.LocalHelper
 import magma.abikarshak.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
@@ -21,6 +22,8 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        //lang
+        LocalHelper.onCreate(this)
 
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)

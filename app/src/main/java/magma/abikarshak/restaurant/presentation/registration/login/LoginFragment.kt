@@ -32,6 +32,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.messaging.FirebaseMessaging
+import magma.abikarshak.restaurant.presentation.registration.forget_password.ForgetPasswordFragment
 import magma.abikarshak.restaurant.utils.CommonUtils
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
@@ -155,6 +156,9 @@ class LoginFragment : Fragment() {
                             LoginActions.GOOGLE_CLICKED -> {
                                 signIn()
                             }
+                            LoginActions.FACEBOOK_CLICKED -> {
+                                signIn()
+                            }
                             LoginActions.FORGET_PASSWORD -> {
                                 forgetPassword()
                             }
@@ -195,7 +199,8 @@ class LoginFragment : Fragment() {
                             // usually this happening when there is server error
                             val response = t.response as ErrorManager
                             Log.d("TAG", "loginResponse: DataError $response")
-                            //signOut()
+                            if (GoogleSignIn.getLastSignedInAccount(requireActivity()) != null)
+                                signOut()
                             MotionToast.darkToast(
                                 requireActivity(),
                                 getString(R.string.error),
@@ -252,7 +257,11 @@ class LoginFragment : Fragment() {
     }
 
     private fun forgetPassword() {
-
+        val forgetPasswordFragment: ForgetPasswordFragment = ForgetPasswordFragment.newInstance()
+        forgetPasswordFragment.show(
+            requireActivity().supportFragmentManager,
+            Const.TAG_ForgetPasswordFragment
+        )
     }
 
     private fun signOut() {

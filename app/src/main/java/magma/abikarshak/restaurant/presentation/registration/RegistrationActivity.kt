@@ -12,6 +12,7 @@ import magma.abikarshak.restaurant.R
 import magma.abikarshak.restaurant.databinding.ActivityRegisterationBinding
 import magma.abikarshak.restaurant.presentation.registration.login.LoginViewModel
 import magma.abikarshak.restaurant.utils.BindingUtils.hideKeyboard
+import magma.abikarshak.restaurant.utils.LocalHelper
 import magma.abikarshak.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
@@ -29,6 +30,9 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+
+        //lang
+        LocalHelper.onCreate(this)
 
         binding = ActivityRegisterationBinding.inflate(layoutInflater)
         binding.viewModel = viewModel

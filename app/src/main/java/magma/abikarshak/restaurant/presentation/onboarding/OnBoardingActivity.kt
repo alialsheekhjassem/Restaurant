@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import dagger.android.AndroidInjection
 import magma.abikarshak.restaurant.databinding.ActivityOnboardingBinding
+import magma.abikarshak.restaurant.utils.LocalHelper
 import magma.abikarshak.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
@@ -25,6 +26,8 @@ class OnBoardingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        //lang
+        LocalHelper.onCreate(this)
 
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         binding.viewModel = viewModel

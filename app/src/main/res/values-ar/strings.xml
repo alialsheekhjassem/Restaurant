@@ -167,7 +167,8 @@
     <string name="verification_code">رمز التحقق</string>
     <string name="a_verification_code_has_been_sent">تم إرسال رمز التحقق إلى رقم هاتفك المحمول.</string>
     <string name="edit_phone_number">تعديل رقم الموبايل</string>
-    <string name="didn_t_receive_the_code_resend_45s">ألم يصلك الرمز؟ إعادة إرسال (45 ثانية)</string>
+    <string name="didn_t_receive_the_code_resend_45s">ألم يصلك الرمز؟ </string>
+    <string name="resend_45s">إعادة إرسال </string>
     <string name="select_location">اختر موقع</string>
     <string name="search_for_restaurants">البحث عن مطاعم</string>
     <string name="recommended_restaurants">المطاعم المقترحة</string>
@@ -185,7 +186,14 @@
     <string name="ready">جاهزة</string>
     <string name="your_order_is_ready">طلبيتك جاهزة</string>
     <string name="forbidden">محظور 403</string>
-    <string name="wrong_number">Wrong Code</string>
-    <string name="code_sent">Code Sent</string>
-    <string name="wrong_code">Wrong Code</string>
+    <string name="wrong_number">رقم خاطئ</string>
+    <string name="code_sent">تم إرسال الرمز</string>
+    <string name="wrong_code">رمز خاطئ</string>
+    <string name="success">تم بنجاح</string>
+    <string name="enter_phone_number">أدخل رقم الموبايل</string>
+    <string name="please_enter_the_number_you_signed_up_with">Please enter the number you signed up with</string>
+    <string name="a_verfication_code_has_been_sent_to_your_mobile_number">A verfication code has been sent to your mobile number.</string>
+    <string name="verify">Verify</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="save_new_password">Save New Password</string>
 </resources>

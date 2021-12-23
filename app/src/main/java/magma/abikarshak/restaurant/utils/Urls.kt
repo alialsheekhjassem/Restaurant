@@ -9,5 +9,6 @@ class Urls {
 
         const val END_POINT_LOGIN = "/api/auth/login"
         const val END_POINT_REGISTER = "/api/auth/register"
+        const val END_POINT_RESET_PASSWORD = "/api/auth/resetPassword"
     }
 }

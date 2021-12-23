@@ -9,6 +9,7 @@ import dagger.android.AndroidInjection
 import magma.abikarshak.restaurant.presentation.home.HomeActivity
 import magma.abikarshak.restaurant.presentation.onboarding.OnBoardingActivity
 import magma.abikarshak.restaurant.presentation.registration.RegistrationActivity
+import magma.abikarshak.restaurant.utils.LocalHelper
 import magma.abikarshak.restaurant.utils.ViewModelFactory
 import javax.inject.Inject
 
@@ -25,6 +26,9 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+
+        //lang
+        LocalHelper.onCreate(this)
 
         val isShown = viewModel.isShowOnBoarding()
         val token = viewModel.getToken()

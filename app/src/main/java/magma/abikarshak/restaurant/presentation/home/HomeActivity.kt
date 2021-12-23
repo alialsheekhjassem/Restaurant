@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import dagger.android.AndroidInjection
 import magma.abikarshak.restaurant.R
 import magma.abikarshak.restaurant.databinding.ActivityHomeBinding
+import magma.abikarshak.restaurant.utils.LocalHelper
 import magma.abikarshak.restaurant.utils.ViewModelFactory
 import magma.abikarshak.restaurant.utils.meow_bottom_navigation.MeowBottomNavigation
 import javax.inject.Inject
@@ -27,6 +28,8 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        //lang
+        LocalHelper.onCreate(this)
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)

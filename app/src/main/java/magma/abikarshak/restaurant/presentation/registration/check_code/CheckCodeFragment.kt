@@ -3,14 +3,13 @@ package magma.abikarshak.restaurant.presentation.registration.check_code
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -21,37 +20,39 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken
 import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks
-import com.google.firebase.messaging.FirebaseMessaging
 import dagger.android.support.AndroidSupportInjection
 import magma.abikarshak.restaurant.R
+import magma.abikarshak.restaurant.data.remote.controller.ErrorManager
+import magma.abikarshak.restaurant.data.remote.controller.Resource
+import magma.abikarshak.restaurant.data.remote.controller.ResponseWrapper
 import magma.abikarshak.restaurant.data.remote.requests.RegisterRequest
 import magma.abikarshak.restaurant.databinding.FragmentCheckCodeBinding
-import magma.abikarshak.restaurant.presentation.home.HomeActivity
 import magma.abikarshak.restaurant.utils.BindingUtils.hideKeyboard
 import magma.abikarshak.restaurant.utils.CommonUtils
 import magma.abikarshak.restaurant.utils.Const
+import magma.abikarshak.restaurant.utils.EventObserver
 import magma.abikarshak.restaurant.utils.ViewModelFactory
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
+import java.lang.Exception
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class CheckCodeFragment : Fragment() {
     lateinit var binding: FragmentCheckCodeBinding
-    private lateinit var registerRequest: RegisterRequest
+    private var registerRequest: RegisterRequest? = null
     private lateinit var alertDialog: AlertDialog
     private var mAuth: FirebaseAuth? = null
     private var mCallbacks: OnVerificationStateChangedCallbacks? = null
-    private lateinit var countDownTimer: CountDownTimer
-    private var fcmToken: String? = null
+    private var countDownTimer: CountDownTimer? = null
     private var mResendToken: ForceResendingToken? = null
-    private var mVerificationId: String? = null
+    private lateinit var mVerificationId: String
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel: CheckCodeViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory).get(CheckCodeViewModel::class.java)
+        ViewModelProvider(this, viewModelFactory)[CheckCodeViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,28 +71,141 @@ class CheckCodeFragment : Fragment() {
 
         mAuth = FirebaseAuth.getInstance()
         startPhoneCallbacks()
-        //[START THE PROCESS OF VERIFICATION]
-        fetchFCMToken()
-        if (registerRequest.phone != null)
-            startPhoneNumberVerification(registerRequest.phone!!)
+        if (registerRequest?.phone != null)
+            startPhoneNumberVerification(registerRequest!!.phone!!)
 
-        binding.btnConfirm.setOnClickListener {
-            goToHomeActivity()
-        }
-        binding.btnEditPhoneNumber.setOnClickListener {
-            Navigation.findNavController(binding.root).navigateUp()
-        }
+        setObservers()
 
         return binding.root
     }
 
-    private fun fetchFCMToken() {
-        FirebaseMessaging.getInstance().token
-            .addOnCompleteListener { task: Task<String> ->
-                if (task.isSuccessful) {
-                    fcmToken = task.result
+    private fun setObservers() {
+        viewModel.actions.observe(
+            viewLifecycleOwner, EventObserver(
+                object : EventObserver.EventUnhandledContent<CheckCodeActions> {
+                    override fun onEventUnhandledContent(t: CheckCodeActions) {
+                        when (t) {
+                            CheckCodeActions.VERIFY_CLICKED -> {
+                                verifyCode()
+                            }
+                            CheckCodeActions.EDIT_PHONE_CLICKED -> {
+                                Navigation.findNavController(binding.root)
+                                    .navigate(R.id.action_check_code_to_register)
+                            }
+                            CheckCodeActions.RESEND_CODE_CLICKED -> {
+                                resendCode()
+                            }
+                        }
+                    }
+                })
+        )
+
+
+        // listen to api result
+        viewModel.registerResponse.observe(
+            requireActivity(),
+            EventObserver
+                (object :
+                EventObserver.EventUnhandledContent<Resource<ResponseWrapper<String>>> {
+                override fun onEventUnhandledContent(t: Resource<ResponseWrapper<String>>) {
+                    hideKeyboard()
+                    when (t) {
+                        is Resource.Loading -> {
+                            // show progress bar and remove no data layout while loading
+                            showLoadingDialog()
+                        }
+                        is Resource.Success -> {
+                            // response is ok get the data and display it in the list
+                            hideLoadingDialog()
+                            val response = t.response as ResponseWrapper<*>
+                            val registerResponse = response.successResult as String
+                            Log.d(TAG, "registerResponse: $registerResponse")
+                            MotionToast.darkToast(
+                                requireActivity(),
+                                getString(R.string.success),
+                                getString(R.string.success),
+                                MotionToastStyle.SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
+                            )
+
+                            Navigation.findNavController(binding.root)
+                                .navigate(R.id.action_check_code_to_login)
+                        }
+                        is Resource.DataError -> {
+                            hideLoadingDialog()
+                            // usually this happening when there is server error
+                            val response = t.response as ErrorManager
+                            Log.d(TAG, "registerResponse: DataError $response")
+                            //signOut()
+                            MotionToast.darkToast(
+                                requireActivity(),
+                                getString(R.string.error),
+                                response.failureMessage,
+                                MotionToastStyle.ERROR,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
+                            )
+                        }
+                        is Resource.Exception -> {
+                            hideLoadingDialog()
+                            // usually this happening when there is no internet
+                            val response = t.response
+                            Log.d(TAG, "onEventUnhandledContent: $response")
+                            MotionToast.darkToast(
+                                requireActivity(),
+                                getString(R.string.error),
+                                response.toString(),
+                                MotionToastStyle.ERROR,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.LONG_DURATION,
+                                ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
+                            )
+                        }
+                    }
                 }
+            })
+        )
+    }
+
+    private fun resendCode() {
+        binding.txtResendCode.isEnabled = false
+        binding.txtResendCode.setTextColor(ContextCompat.getColor(requireActivity(), R.color.grey_60))
+        startTimer()
+        if (registerRequest?.phone != null)
+            mResendToken?.let { resendVerificationCode(registerRequest?.phone!!, it) }
+    }
+
+    private fun verifyCode() {
+        hideKeyboard()
+        if (binding.otpNumber.text != null && binding.otpNumber.text.toString().isNotEmpty()
+            && binding.otpNumber.text.toString().length == 6
+        ) {
+            try {
+                verifyPhoneNumberWithCode(mVerificationId, binding.otpNumber.text.toString())
+            } catch (exception: Exception) {
+                Log.d(TAG, "onCreateView: $exception")
             }
+        } else {
+            showErrorToast(getString(R.string.wrong_code))
+        }
+    }
+
+    // [START resend_verification]
+    private fun resendVerificationCode(
+        phoneNumber: String,
+        token: ForceResendingToken
+    ) {
+        val options = PhoneAuthOptions.newBuilder(mAuth!!)
+            .setPhoneNumber(phoneNumber) // Phone number to verify
+            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+            .setActivity(requireActivity()) // Activity (for callback binding)
+            .setCallbacks(mCallbacks!!) // OnVerificationStateChangedCallbacks
+            .setForceResendingToken(token) // ForceResendingToken from callbacks
+            .build()
+        PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
     private fun startPhoneCallbacks() {
@@ -140,28 +254,40 @@ class CheckCodeFragment : Fragment() {
                 // now need to ask the user to enter the code and then construct a credential
                 // by combining the code with a verification ID.
                 Log.d(TAG, "onCodeSent: $token")
+                countDownTimer?.cancel()
+
+                binding.btnConfirm.isEnabled = true
                 startTimer()
 
                 // Save verification ID and resending token so we can use them later
                 mVerificationId = verificationId
                 mResendToken = token
-                Toast.makeText(
-                    binding.root.context,
+                MotionToast.darkToast(
+                    requireActivity(),
+                    getString(R.string.success),
                     getString(R.string.code_sent),
-                    Toast.LENGTH_SHORT
-                ).show()
+                    MotionToastStyle.SUCCESS,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
+                )
             }
         }
     }
 
     private fun startTimer() {
-        countDownTimer.cancel()
+        countDownTimer?.cancel()
         countDownTimer = object : CountDownTimer(60000, 1000) {
+            @SuppressLint("SetTextI18n")
             override fun onTick(millisUntilFinished: Long) {
-                binding.txtSubTitle.text = (millisUntilFinished / 1000).toString()
+                binding.txtResendCode.text = getString(R.string.resend_45s) + "(" +
+                        (millisUntilFinished / 1000).toString() + ")"
             }
 
             override fun onFinish() {
+                binding.txtResendCode.text = getString(R.string.resend_45s)
+                binding.txtResendCode.isEnabled = true
+                binding.txtResendCode.setTextColor(ContextCompat.getColor(requireActivity(), R.color.colorPrimary))
             }
         }.start()
     }
@@ -178,15 +304,22 @@ class CheckCodeFragment : Fragment() {
         )
     }
 
-    private fun goToHomeActivity() {
+    /*private fun goToHomeActivity() {
         val intent = Intent(requireActivity(), HomeActivity::class.java)
         startActivity(intent)
         requireActivity().finish()
-    }
+    }*/
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
+    }
+
+    private fun verifyPhoneNumberWithCode(verificationId: String, code: String) {
+        // [START verify_with_code]
+        val credential = PhoneAuthProvider.getCredential(verificationId, code)
+        // [END verify_with_code]
+        signInWithPhoneAuthCredential(credential)
     }
 
     private fun startPhoneNumberVerification(phoneNumber: String) {
@@ -220,7 +353,7 @@ class CheckCodeFragment : Fragment() {
                     if (user != null) {
                         val idToken = user.getIdToken(false).result.token
                         val userUID = user.uid
-                        //sendToServerN(idToken, userUID)
+                        doServerRegister(idToken, userUID)
                     }
                 } else {
                     // Sign in failed, display a message and update the UI
@@ -241,6 +374,11 @@ class CheckCodeFragment : Fragment() {
             }
     }
 
+    private fun doServerRegister(idToken: String?, userUID: String) {
+        registerRequest?.firebaseAuthToken = idToken
+        registerRequest?.let { viewModel.doServerRegister(it, idToken, userUID) }
+    }
+
     fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
@@ -250,7 +388,7 @@ class CheckCodeFragment : Fragment() {
     }
 
     private fun hideLoadingDialog() {
-        alertDialog.cancel()
+        alertDialog.dismiss()
     }
 
     companion object {
