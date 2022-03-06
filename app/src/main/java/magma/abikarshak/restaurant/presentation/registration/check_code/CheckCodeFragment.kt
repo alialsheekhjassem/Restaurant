@@ -1,7 +1,6 @@
 package magma.abikarshak.restaurant.presentation.registration.check_code
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -10,8 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.google.android.gms.tasks.Task
@@ -27,21 +24,17 @@ import magma.abikarshak.restaurant.data.remote.controller.Resource
 import magma.abikarshak.restaurant.data.remote.controller.ResponseWrapper
 import magma.abikarshak.restaurant.data.remote.requests.RegisterRequest
 import magma.abikarshak.restaurant.databinding.FragmentCheckCodeBinding
-import magma.abikarshak.restaurant.utils.BindingUtils.hideKeyboard
-import magma.abikarshak.restaurant.utils.CommonUtils
+import magma.abikarshak.restaurant.presentation.base.ProgressBarFragments
 import magma.abikarshak.restaurant.utils.Const
 import magma.abikarshak.restaurant.utils.EventObserver
 import magma.abikarshak.restaurant.utils.ViewModelFactory
-import www.sanju.motiontoast.MotionToast
-import www.sanju.motiontoast.MotionToastStyle
 import java.lang.Exception
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class CheckCodeFragment : Fragment() {
+class CheckCodeFragment : ProgressBarFragments() {
     lateinit var binding: FragmentCheckCodeBinding
     private var registerRequest: RegisterRequest? = null
-    private lateinit var alertDialog: AlertDialog
     private var mAuth: FirebaseAuth? = null
     private var mCallbacks: OnVerificationStateChangedCallbacks? = null
     private var countDownTimer: CountDownTimer? = null
@@ -57,8 +50,8 @@ class CheckCodeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments != null) {
-            registerRequest = requireArguments().getParcelable(Const.EXTRA_REGISTER_REQUEST)!!
+        arguments?.let {
+            registerRequest = it.getParcelable(Const.EXTRA_REGISTER_REQUEST)
         }
     }
 
@@ -71,8 +64,9 @@ class CheckCodeFragment : Fragment() {
 
         mAuth = FirebaseAuth.getInstance()
         startPhoneCallbacks()
-        if (registerRequest?.phone != null)
-            startPhoneNumberVerification(registerRequest!!.phone!!)
+        registerRequest?.phone?.let {
+            startPhoneNumberVerification(it)
+        }
 
         setObservers()
 
@@ -120,16 +114,7 @@ class CheckCodeFragment : Fragment() {
                             val response = t.response as ResponseWrapper<*>
                             val registerResponse = response.successResult as String
                             Log.d(TAG, "registerResponse: $registerResponse")
-                            MotionToast.darkToast(
-                                requireActivity(),
-                                getString(R.string.success),
-                                getString(R.string.success),
-                                MotionToastStyle.SUCCESS,
-                                MotionToast.GRAVITY_BOTTOM,
-                                MotionToast.LONG_DURATION,
-                                ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-                            )
-
+                            showSuccessToast(getString(R.string.success))
                             Navigation.findNavController(binding.root)
                                 .navigate(R.id.action_check_code_to_login)
                         }
@@ -138,31 +123,14 @@ class CheckCodeFragment : Fragment() {
                             // usually this happening when there is server error
                             val response = t.response as ErrorManager
                             Log.d(TAG, "registerResponse: DataError $response")
-                            //signOut()
-                            MotionToast.darkToast(
-                                requireActivity(),
-                                getString(R.string.error),
-                                response.failureMessage,
-                                MotionToastStyle.ERROR,
-                                MotionToast.GRAVITY_BOTTOM,
-                                MotionToast.LONG_DURATION,
-                                ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-                            )
+                            showErrorToast(response.failureMessage)
                         }
                         is Resource.Exception -> {
                             hideLoadingDialog()
                             // usually this happening when there is no internet
                             val response = t.response
                             Log.d(TAG, "onEventUnhandledContent: $response")
-                            MotionToast.darkToast(
-                                requireActivity(),
-                                getString(R.string.error),
-                                response.toString(),
-                                MotionToastStyle.ERROR,
-                                MotionToast.GRAVITY_BOTTOM,
-                                MotionToast.LONG_DURATION,
-                                ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-                            )
+                            showErrorToast(response.toString())
                         }
                     }
                 }
@@ -172,7 +140,12 @@ class CheckCodeFragment : Fragment() {
 
     private fun resendCode() {
         binding.txtResendCode.isEnabled = false
-        binding.txtResendCode.setTextColor(ContextCompat.getColor(requireActivity(), R.color.grey_60))
+        binding.txtResendCode.setTextColor(
+            ContextCompat.getColor(
+                requireActivity(),
+                R.color.grey_60
+            )
+        )
         startTimer()
         if (registerRequest?.phone != null)
             mResendToken?.let { resendVerificationCode(registerRequest?.phone!!, it) }
@@ -262,15 +235,9 @@ class CheckCodeFragment : Fragment() {
                 // Save verification ID and resending token so we can use them later
                 mVerificationId = verificationId
                 mResendToken = token
-                MotionToast.darkToast(
-                    requireActivity(),
-                    getString(R.string.success),
-                    getString(R.string.code_sent),
-                    MotionToastStyle.SUCCESS,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-                )
+                showSuccessToast(getString(R.string.success))
+
+                showLoadingDialog()
             }
         }
     }
@@ -287,28 +254,15 @@ class CheckCodeFragment : Fragment() {
             override fun onFinish() {
                 binding.txtResendCode.text = getString(R.string.resend_45s)
                 binding.txtResendCode.isEnabled = true
-                binding.txtResendCode.setTextColor(ContextCompat.getColor(requireActivity(), R.color.colorPrimary))
+                binding.txtResendCode.setTextColor(
+                    ContextCompat.getColor(
+                        requireActivity(),
+                        R.color.colorPrimary
+                    )
+                )
             }
         }.start()
     }
-
-    private fun showErrorToast(errorMessage: String) {
-        MotionToast.darkToast(
-            requireActivity(),
-            getString(R.string.error),
-            errorMessage,
-            MotionToastStyle.ERROR,
-            MotionToast.GRAVITY_BOTTOM,
-            MotionToast.LONG_DURATION,
-            ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-        )
-    }
-
-    /*private fun goToHomeActivity() {
-        val intent = Intent(requireActivity(), HomeActivity::class.java)
-        startActivity(intent)
-        requireActivity().finish()
-    }*/
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -359,16 +313,8 @@ class CheckCodeFragment : Fragment() {
                     // Sign in failed, display a message and update the UI
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        MotionToast.darkToast(
-                            requireActivity(),
-                            getString(R.string.error),
-                            getString(R.string.wrong_code),
-                            MotionToastStyle.SUCCESS,
-                            MotionToast.GRAVITY_BOTTOM,
-                            MotionToast.LONG_DURATION,
-                            ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-                        )
-                        alertDialog.dismiss()
+                        showErrorToast(getString(R.string.wrong_code))
+                        hideLoadingDialog()
                     }
                 }
             }
@@ -377,18 +323,6 @@ class CheckCodeFragment : Fragment() {
     private fun doServerRegister(idToken: String?, userUID: String) {
         registerRequest?.firebaseAuthToken = idToken
         registerRequest?.let { viewModel.doServerRegister(it, idToken, userUID) }
-    }
-
-    fun Fragment.hideKeyboard() {
-        view?.let { activity?.hideKeyboard(it) }
-    }
-
-    private fun showLoadingDialog() {
-        alertDialog = CommonUtils.showLoadingDialog(requireActivity())
-    }
-
-    private fun hideLoadingDialog() {
-        alertDialog.dismiss()
     }
 
     companion object {

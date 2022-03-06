@@ -6,12 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import magma.abikarshak.restaurant.R
 import magma.abikarshak.restaurant.data.remote.controller.Resource
 import magma.abikarshak.restaurant.data.remote.controller.ResponseWrapper
-import magma.abikarshak.restaurant.data.remote.requests.LoginRequest
 import magma.abikarshak.restaurant.data.remote.requests.ResetPasswordRequest
-import magma.abikarshak.restaurant.data.remote.responses.LoginResponse
 import magma.abikarshak.restaurant.data.repository.DataRepository
 import magma.abikarshak.restaurant.utils.Const
 import magma.abikarshak.restaurant.utils.Event
@@ -48,7 +45,7 @@ class ForgetPasswordViewModel @Inject constructor(
         fullPhoneNumber: String,
         edtPassword: Editable,
         edtConfirmPassword: Editable,
-        firebaseAuthToken: String
+        firebaseAuthToken: String?
     ) {
         when {
             StringRuleUtil.NOT_EMPTY_RULE.validate(edtPassword) -> {

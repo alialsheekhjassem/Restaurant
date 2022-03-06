@@ -21,14 +21,14 @@ class RemoteRepository
 @Inject constructor(private val serviceGenerator: ServiceGenerator, private val gson: Gson) :
     IRestApiManager {
 
-    override suspend fun doServerLogin(loginRequest: LoginRequest): Resource<ResponseWrapper<LoginResponse>> {
+    override suspend fun doServerLogin(loginRequest: LoginRequest): Resource<LoginResponse> {
         val authService = serviceGenerator.createService(IFoodService::class.java)
         try {
             val response = authService.doServerLogin(loginRequest)
 
             return if (response.isSuccessful) {
                 //Do something with response e.g show to the UI.
-                val loginResponse = response.body() as ResponseWrapper<LoginResponse>
+                val loginResponse = response.body()?.successResult as LoginResponse
                 Log.d(TAG, "doServerLogin: isSuccessful " + response.code())
                 Log.d(TAG, "doServerLogin: isSuccessful $loginResponse")
                 Resource.Success(loginResponse)

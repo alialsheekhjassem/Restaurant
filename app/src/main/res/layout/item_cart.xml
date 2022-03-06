@@ -153,7 +153,7 @@
                         android:layout_gravity="center"
                         android:background="?attr/selectableItemBackground"
                         android:contentDescription="@string/app_name"
-                        android:src="@drawable/plusbox" />
+                        android:src="@drawable/ic_close" />
 
                     <TextView
                         android:id="@+id/txt_quantity"
@@ -175,7 +175,7 @@
                         android:layout_gravity="center"
                         android:background="?attr/selectableItemBackground"
                         android:contentDescription="@string/app_name"
-                        android:src="@drawable/min_box" />
+                        android:src="@drawable/ic_close" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 

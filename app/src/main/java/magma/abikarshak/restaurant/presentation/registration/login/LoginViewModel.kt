@@ -9,7 +9,6 @@ import com.hbb20.CountryCodePicker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import magma.abikarshak.restaurant.data.remote.controller.Resource
-import magma.abikarshak.restaurant.data.remote.controller.ResponseWrapper
 import magma.abikarshak.restaurant.data.remote.requests.LoginRequest
 import magma.abikarshak.restaurant.data.remote.responses.LoginResponse
 import magma.abikarshak.restaurant.data.repository.DataRepository
@@ -26,10 +25,10 @@ class LoginViewModel @Inject constructor(
 
     val actions = MutableLiveData<Event<LoginActions>>()
     val loginValidation = MutableLiveData<Int>()
-    val loginResponse = MutableLiveData<Event<Resource<ResponseWrapper<LoginResponse>>>>()
+    val loginResponse = MutableLiveData<Event<Resource<LoginResponse>>>()
 
     fun doServerLogin(
-        fcmToken: String,
+        fcmToken: String?,
         countryCodePicker: CountryCodePicker,
         edtPhone: Editable,
         edtPassword: Editable
@@ -62,7 +61,7 @@ class LoginViewModel @Inject constructor(
                     request.phone = fullPhoneNumber
                     request.password = edtPassword.toString()
                     request.firebaseFCMToken = fcmToken
-                    val response: Resource<ResponseWrapper<LoginResponse>> =
+                    val response: Resource<LoginResponse> =
                         dataRepository.doServerLogin(request)
                     loginResponse.value = Event(response)
                 }
@@ -82,7 +81,22 @@ class LoginViewModel @Inject constructor(
             * */
             request.phone = googleSignInAccount.idToken
             request.password = ""
-            val response: Resource<ResponseWrapper<LoginResponse>> =
+            val response: Resource<LoginResponse> =
+                dataRepository.doServerLogin(request)
+            loginResponse.value = Event(response)
+        }
+    }
+
+    fun doServerLoginGuest() {
+        launch {
+            loginResponse.value = Event(Resource.Loading())
+            val request = LoginRequest()
+            /*
+            * This Request not processed from API
+            * */
+            request.phone = null
+            request.password = null
+            val response: Resource<LoginResponse> =
                 dataRepository.doServerLogin(request)
             loginResponse.value = Event(response)
         }

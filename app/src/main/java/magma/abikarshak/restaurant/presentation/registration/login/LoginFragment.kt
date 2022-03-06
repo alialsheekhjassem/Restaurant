@@ -1,6 +1,5 @@
 package magma.abikarshak.restaurant.presentation.registration.login
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -18,10 +17,8 @@ import dagger.android.support.AndroidSupportInjection
 import magma.abikarshak.restaurant.R
 import magma.abikarshak.restaurant.data.remote.controller.ErrorManager
 import magma.abikarshak.restaurant.data.remote.controller.Resource
-import magma.abikarshak.restaurant.data.remote.controller.ResponseWrapper
 import magma.abikarshak.restaurant.data.remote.responses.LoginResponse
 import magma.abikarshak.restaurant.databinding.FragmentLoginBinding
-import magma.abikarshak.restaurant.presentation.home.HomeActivity
 import magma.abikarshak.restaurant.utils.BindingUtils.hideKeyboard
 import magma.abikarshak.restaurant.utils.Const
 import magma.abikarshak.restaurant.utils.EventObserver
@@ -32,12 +29,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.messaging.FirebaseMessaging
+import magma.abikarshak.restaurant.presentation.base.ProgressBarFragments
 import magma.abikarshak.restaurant.presentation.registration.forget_password.ForgetPasswordFragment
-import magma.abikarshak.restaurant.utils.CommonUtils
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 
-class LoginFragment : Fragment() {
+class LoginFragment : ProgressBarFragments() {
     private val RC_SIGN_IN: Int = 100
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var title: String
@@ -45,7 +42,6 @@ class LoginFragment : Fragment() {
     private var imageResource = 0
     private var position = 0
     lateinit var binding: FragmentLoginBinding
-    private lateinit var alertDialog: AlertDialog
     private var fcmToken: String? = null
 
     @Inject
@@ -134,14 +130,6 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun showLoadingDialog() {
-        alertDialog = CommonUtils.showLoadingDialog(requireActivity())
-    }
-
-    private fun hideLoadingDialog() {
-        alertDialog.cancel()
-    }
-
     private fun setupObservers() {
 
         viewModel.actions.observe(
@@ -174,8 +162,8 @@ class LoginFragment : Fragment() {
             requireActivity(),
             EventObserver
                 (object :
-                EventObserver.EventUnhandledContent<Resource<ResponseWrapper<LoginResponse>>> {
-                override fun onEventUnhandledContent(t: Resource<ResponseWrapper<LoginResponse>>) {
+                EventObserver.EventUnhandledContent<Resource<LoginResponse>> {
+                override fun onEventUnhandledContent(t: Resource<LoginResponse>) {
                     hideKeyboard()
                     when (t) {
                         is Resource.Loading -> {
@@ -185,8 +173,8 @@ class LoginFragment : Fragment() {
                         is Resource.Success -> {
                             // response is ok get the data and display it in the list
                             hideLoadingDialog()
-                            val response = t.response as ResponseWrapper<*>
-                            val loginResponse = response.successResult as LoginResponse
+                            //val response = t.response as ResponseWrapper<*>
+                            val loginResponse = t.response as LoginResponse
                             Log.d("TAG", "loginResponse: $loginResponse")
 
                             if (loginResponse.token != null) {
@@ -272,13 +260,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun goToHomeActivity() {
-        val intent = Intent(requireActivity(), HomeActivity::class.java)
-        startActivity(intent)
-        requireActivity().finish()
-    }
-
-    fun Fragment.hideKeyboard() {
+    override fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
 

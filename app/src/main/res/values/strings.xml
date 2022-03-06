@@ -196,4 +196,5 @@
     <string name="verify">Verify</string>
     <string name="reset_password">Reset Password</string>
     <string name="save_new_password">Save New Password</string>
+    <string name="retry">Retry</string>
 </resources>

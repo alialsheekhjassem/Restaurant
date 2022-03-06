@@ -61,7 +61,7 @@
                 android:padding="@dimen/spacing_large"
                 android:text="@string/edit_profile"
                 app:drawableEndCompat="@drawable/ic_arrow_back"
-                app:drawableStartCompat="@drawable/profile"
+                app:drawableStartCompat="@drawable/ic_close"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_title_name" />
@@ -78,7 +78,7 @@
                 android:padding="@dimen/spacing_large"
                 android:text="@string/settings_and_features"
                 app:drawableEndCompat="@drawable/ic_arrow_back"
-                app:drawableStartCompat="@drawable/setting"
+                app:drawableStartCompat="@drawable/ic_close"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_edit" />
@@ -112,7 +112,7 @@
                 android:padding="@dimen/spacing_large"
                 android:text="@string/invite_your_friends"
                 app:drawableEndCompat="@drawable/ic_arrow_back"
-                app:drawableStartCompat="@drawable/invite"
+                app:drawableStartCompat="@drawable/ic_close"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_about_app" />
@@ -136,7 +136,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/spacing_large"
                 android:text="@string/logout"
-                app:drawableStartCompat="@drawable/loge_out"
+                app:drawableStartCompat="@drawable/ic_close"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

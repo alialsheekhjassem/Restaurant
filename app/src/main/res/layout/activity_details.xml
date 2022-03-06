@@ -33,7 +33,7 @@
                     android:contentDescription="@string/app_name"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/image2"
+                    android:src="@drawable/ic_close"
                     android:tint="@color/colorTransparency"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
                     android:layout_marginEnd="@dimen/spacing_large"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/cancel"
+                    android:src="@drawable/ic_close"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
                     android:layout_marginTop="@dimen/spacing_profile_top"
                     android:background="?attr/selectableItemBackground"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/next"
+                    android:src="@drawable/ic_close"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,7 +131,7 @@
                 android:gravity="end"
                 android:text="@string/show_cart"
                 android:textColor="@color/white"
-                app:drawableEndCompat="@drawable/backword" />
+                app:drawableEndCompat="@drawable/ic_close" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

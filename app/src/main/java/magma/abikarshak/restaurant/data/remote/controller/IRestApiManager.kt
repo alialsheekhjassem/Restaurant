@@ -7,7 +7,7 @@ import magma.abikarshak.restaurant.data.remote.responses.LoginResponse
 
 internal interface IRestApiManager {
 
-    suspend fun doServerLogin(loginRequest: LoginRequest): Resource<ResponseWrapper<LoginResponse>>
+    suspend fun doServerLogin(loginRequest: LoginRequest): Resource<LoginResponse>
 
     suspend fun doServerRegister(registerRequest: RegisterRequest): Resource<ResponseWrapper<String>>
 

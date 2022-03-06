@@ -29,7 +29,7 @@ class RegisterViewModel @Inject constructor(
     val registerRequest = MutableLiveData<RegisterRequest>()
     val actions = MutableLiveData<Event<RegisterActions>>()
     val registerValidation = MutableLiveData<Int>()
-    val loginResponse = MutableLiveData<Event<Resource<ResponseWrapper<LoginResponse>>>>()
+    val loginResponse = MutableLiveData<Event<Resource<LoginResponse>>>()
 
     fun doServerRegister(
         edtName: Editable,
@@ -95,7 +95,7 @@ class RegisterViewModel @Inject constructor(
             * */
             request.phone = googleSignInAccount.idToken
             request.password = ""
-            val response: Resource<ResponseWrapper<LoginResponse>> =
+            val response: Resource<LoginResponse> =
                 dataRepository.doServerLogin(request)
             loginResponse.value = Event(response)
         }

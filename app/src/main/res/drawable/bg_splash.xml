@@ -12,7 +12,7 @@
     <!-- Your product logo - 144dp color version of your app icon -->
     <item android:top="200dp" android:gravity="top|center_horizontal">
         <bitmap
-            android:src="@drawable/agreed" />
+            android:src="@drawable/logo" />
     </item>
 
 </layer-list>

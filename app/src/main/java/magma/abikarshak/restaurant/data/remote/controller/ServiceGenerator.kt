@@ -42,6 +42,4 @@ class ServiceGenerator
         return retrofit.create(serviceClass)
     }
 
-
-
 }

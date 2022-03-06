@@ -18,7 +18,7 @@ constructor(
 ) : DataSource {
 
     //Api
-    override suspend fun doServerLogin(loginRequest: LoginRequest): Resource<ResponseWrapper<LoginResponse>> {
+    override suspend fun doServerLogin(loginRequest: LoginRequest): Resource<LoginResponse> {
         return remoteRepository.doServerLogin(loginRequest)
     }
 

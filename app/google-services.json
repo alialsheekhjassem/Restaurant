@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "585285868534-vj22k9d3aalh2uig9i0sncnvgaclldv6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "magma.abikarshak.restaurant",
+            "certificate_hash": "0a96976103b050abd977c86ea449646f444df984"
+          }
+        },
+        {
           "client_id": "585285868534-as4hbtvhkk0tpa16mr3uifopc8ukobsm.apps.googleusercontent.com",
           "client_type": 3
         }

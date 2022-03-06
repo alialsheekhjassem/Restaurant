@@ -51,7 +51,7 @@
                 android:textColor="@color/green_200"
                 android:textStyle="bold"
                 android:text="4.3"
-                app:drawableStartCompat="@drawable/star"
+                app:drawableStartCompat="@drawable/ic_close"
                 app:layout_constraintBottom_toTopOf="@+id/barrier"
                 app:layout_constraintEnd_toStartOf="@+id/img_location"
                 app:layout_constraintStart_toEndOf="@+id/txt_title"
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_card_padding"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/location2"
+                android:src="@drawable/ic_close"
                 app:layout_constraintBottom_toTopOf="@+id/barrier"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -92,7 +92,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/barrier"
                 tools:text="@string/app_name"
-                app:drawableStartCompat="@drawable/location3" />
+                app:drawableStartCompat="@drawable/ic_close" />
 
             <TextView
                 android:id="@+id/txt_work_time"
@@ -109,7 +109,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_location"
                 tools:text="@string/app_name"
-                app:drawableStartCompat="@drawable/clock" />
+                app:drawableStartCompat="@drawable/ic_close" />
 
             <TextView
                 android:id="@+id/txt_delivery_time"
@@ -125,7 +125,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/txt_prepare_time"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_work_time"
-                app:drawableStartCompat="@drawable/car" />
+                app:drawableStartCompat="@drawable/ic_close" />
 
             <TextView
                 android:id="@+id/txt_prepare_time"
@@ -141,7 +141,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/txt_delivery_time"
                 app:layout_constraintTop_toBottomOf="@+id/txt_work_time"
-                app:drawableStartCompat="@drawable/clock" />
+                app:drawableStartCompat="@drawable/ic_close" />
 
             <TextView
                 android:id="@+id/txt_delivery_time_value"

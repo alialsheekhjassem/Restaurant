@@ -121,6 +121,7 @@
             android:textColor="@color/colorPrimary"
             android:padding="@dimen/spacing_default"
             android:minHeight="0dp"
+            android:onClick="@{()->viewModel.doServerLoginGuest()}"
             app:layout_constraintBottom_toTopOf="@+id/txt_title_powered"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

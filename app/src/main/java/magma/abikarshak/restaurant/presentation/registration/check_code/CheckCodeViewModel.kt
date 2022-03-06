@@ -24,7 +24,7 @@ class CheckCodeViewModel @Inject constructor(
     fun doServerRegister(
         request: RegisterRequest,
         idToken: String?,
-        userUID: String,
+        userUID: String?,
     ) {
         launch {
             Log.d("TAG", "doServerRegister: ${request.name}")

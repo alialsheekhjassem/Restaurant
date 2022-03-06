@@ -19,16 +19,64 @@ android {
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
-        applicationVariants.all { variant ->
-            variant.outputs.all {
-                outputFileName = "abikarshak_${variant.buildType.name}_${versionName}.apk"
-            }
-        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'key0'
+            keyPassword 'aliali'
+            storePassword 'aliali'
+            storeFile file('abi_karshak.jks')
+        }
+    }
 
     buildTypes {
+        release {
+            buildConfigField 'String', 'BASE_URL', '\"https://abi-karshak-staging.herokuapp.com/\"'
+            buildConfigField 'String', 'MAPS_API_KEY', '"AIzaSyAiAir1uMz3NwJDd9vjIhqeEuTUgw2S7VM"'
+            minifyEnabled true
+            signingConfig signingConfigs.releaseConfig
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "Abi_Kishak_${variant.buildType.name}_${versionName}.apk"
+                }
+            }
+
+        }
+
+        debug {
+            buildConfigField 'String', 'BASE_URL', '\"https://abi-karshak-staging.herokuapp.com/\"'
+            buildConfigField 'String', 'MAPS_API_KEY', '"AIzaSyAiAir1uMz3NwJDd9vjIhqeEuTUgw2S7VM"'
+            debuggable true
+            signingConfig signingConfigs.debug
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "Abi_Kishak_${variant.buildType.name}_${versionName}.apk"
+                }
+            }
+        }
+        releaseDebug {
+            buildConfigField 'String', 'BASE_URL', '\"https://abi-karshak-staging.herokuapp.com/\"'
+            buildConfigField 'String', 'MAPS_API_KEY', '"AIzaSyAiAir1uMz3NwJDd9vjIhqeEuTUgw2S7VM"'
+            debuggable true
+            minifyEnabled true
+            signingConfig signingConfigs.releaseConfig
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "Abi_Kishak_${variant.buildType.name}_${versionName}.apk"
+
+                }
+            }
+        }
+    }
+
+
+    /*buildTypes {
         release {
             buildConfigField 'String', 'BASE_URL', '\"https://abi-karshak-staging.herokuapp.com/\"'
             buildConfigField 'String', 'MAPS_API_KEY', '"AIzaSyAiAir1uMz3NwJDd9vjIhqeEuTUgw2S7VM"'
@@ -41,7 +89,7 @@ android {
             buildConfigField 'String', 'MAPS_API_KEY', '"AIzaSyAiAir1uMz3NwJDd9vjIhqeEuTUgw2S7VM"'
             debuggable true
         }
-    }
+    }*/
 
     flavorDimensions "version"
     productFlavors {
@@ -59,8 +107,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'

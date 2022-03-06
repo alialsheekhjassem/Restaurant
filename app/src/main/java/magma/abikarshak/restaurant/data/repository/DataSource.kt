@@ -11,7 +11,7 @@ import magma.abikarshak.restaurant.model.Restaurant
 interface DataSource {
 
     //Api
-    suspend fun doServerLogin(loginRequest: LoginRequest): Resource<ResponseWrapper<LoginResponse>>
+    suspend fun doServerLogin(loginRequest: LoginRequest): Resource<LoginResponse>
     suspend fun doServerRegister(registerRequest: RegisterRequest): Resource<ResponseWrapper<String>>
     suspend fun doServerResetPassword(request: ResetPasswordRequest): Resource<ResponseWrapper<String>>
 

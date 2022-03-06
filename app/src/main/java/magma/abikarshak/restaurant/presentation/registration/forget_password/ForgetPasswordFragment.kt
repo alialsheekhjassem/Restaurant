@@ -36,7 +36,7 @@ class ForgetPasswordFragment : BottomSheetDialogFragment() {
     lateinit var binding: FragmentForgetPasswordBinding
     private var mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks? = null
     private var mAuth: FirebaseAuth? = null
-    private lateinit var alertDialog: AlertDialog
+    private var alertDialog: AlertDialog? = null
     private lateinit var mVerificationId: String
     private var mAuthToken: String? = null
     private lateinit var mUserUid: String
@@ -360,27 +360,31 @@ class ForgetPasswordFragment : BottomSheetDialogFragment() {
     }
 
     private fun showErrorToast(errorMessage: String) {
-        MotionToast.darkToast(
-            requireActivity(),
-            getString(R.string.error),
-            errorMessage,
-            MotionToastStyle.ERROR,
-            MotionToast.GRAVITY_BOTTOM,
-            MotionToast.LONG_DURATION,
-            ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-        )
+        activity?.let {
+            MotionToast.darkToast(
+                requireActivity(),
+                getString(R.string.error),
+                errorMessage,
+                MotionToastStyle.ERROR,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
+            )
+        }
     }
 
     private fun showSuccessToast(errorMessage: String) {
-        MotionToast.darkToast(
-            requireActivity(),
-            getString(R.string.success),
-            errorMessage,
-            MotionToastStyle.SUCCESS,
-            MotionToast.GRAVITY_BOTTOM,
-            MotionToast.LONG_DURATION,
-            ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
-        )
+        activity?.let {
+            MotionToast.darkToast(
+                requireActivity(),
+                getString(R.string.success),
+                errorMessage,
+                MotionToastStyle.SUCCESS,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(requireActivity(), R.font.helvetica_regular)
+            )
+        }
     }
 
     private fun showLoadingDialog() {
@@ -388,7 +392,7 @@ class ForgetPasswordFragment : BottomSheetDialogFragment() {
     }
 
     private fun hideLoadingDialog() {
-        alertDialog.dismiss()
+        alertDialog?.cancel()
     }
 
     override fun onAttach(context: Context) {
